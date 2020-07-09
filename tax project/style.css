@@ -1,0 +1,13 @@
+td {
+    border: 1px solid black;
+    width: 3em;
+}
+
+.red {
+    color: red;
+    font-weight: bold;
+}
+
+table {
+    width: 93vw;
+}
