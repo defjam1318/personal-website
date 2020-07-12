@@ -11,3 +11,8 @@ td {
 table {
     width: 93vw;
 }
+
+p {
+    font-size: large;
+    color: red;
+}
