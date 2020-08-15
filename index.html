@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Toma Iliev - Historical Strings - Home</title>
+  <title>Toma Iliev - Historical Strings</title>
   <meta charset="utf-8" />
   <meta name="description"
     content="Toma Iliev is a New York based musician specializing in Historical violin and string instruments. A member of the Portland Baroque Orchestra and Sonnambula, he can also be seen concertizing across the United States with Philharmonia Baroque Orchestra, American Bach Soloists and the Clarion Orchestra.">
@@ -10,77 +10,23 @@
     content="music, classical music, historical performance, baroque violinist, violin, viola d'amore, viola, baroque, classical, viola da gamba">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <!--<link rel="stylesheet" href="css/style.css">-->
-  <link rel="icon" type="image/png" href="logos/download.png">
-  <script src="scripts/footer.js"></script>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+  <link rel="icon" type="image/png" href="./pics/icons/download.png">
 </head>
 
-<body class="container">
-  <header class="text-capitalize">
-    <h1 class="text-center"><a href="index.html">toma iliev</a></h1>
-    <h2 class="text-center">historical strings</h2>
-  </header>
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <ul class="nav navbar-nav" id="nav">
-        <li class="active"><a href="index.html">home</a></li>
-        <li><a href="about.html">about</a></li>
-        <li>
-        <li><a href="upcoming.html">calendar</a></li>
-        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">media
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="gallery.html">photos</a></li>
-            <li><a href="audio.html">audio</a></li>
-            <li><a href="video.html">video</a></li>
-          </ul>
-        </li>
-        <!--dropdown-->
-        <li><a href="contact.html">contact</a></li>
-      </ul>
-    </div>
-  </nav>
-  <div id="homepage">
-    <img class="img-rounded img-responsive" src="pics/DSC05743.JPG" />
-    <!--      <a class="sideicon" href="http://facebook.com/iliev.toma" target="_blank"><img id="fblogo" src="logos/FB-f-Logo__white_29.png"></a>
-      <a class="sideicon" href="https://www.youtube.com/channel/UC9bg9ykO9gwWp-3D5jKpFSA" target="_blank"><img id="ytlogo" src="logos/youtube_social_squircle_dark - Edited.png"></a>
-      <a class="sideicon" href="https://www.linkedin.com/in/toma-iliev-b29564121" target="_blank"><img id="lilogo" src="logos/In-White-34px-R.png"></a>-->
-  </div>
-  <hr id="foot" />
-  <footer class="panel-footer">
-    <div class="row container-fluid text-center">
-      <div id="about" class="col-sm-4">
-        <h4>about</h4>
-        <p>Historical violinist Toma Iliev can be seen across the US with Portland Baroque Orchestra, American Bach
-          Soloists, Philharmonia Baroque and Sonnambula.</p>
-      </div>
-      <div class="col-sm-4">
-        <h4>next event</h4>
-        <p><a id="nextevent"></a></p>
-      </div>
-      <div class="col-sm-4">
-        <h4>contact</h4>
-        <ul class="list-unstyled">
-          <li><a id="email">Email</a><br /></li>
-          <li><a href="http://facebook.com/iliev.toma" target="blank">Facebook</a><br /></li>
-          <li>1/404/500/8662</li>
-        </ul>
-      </div>
-    </div>
-    <br />
-    <div id="copyright" class="text-center"></div>
-    <script>
-      footer();
-    </script>
-  </footer>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-    crossorigin="anonymous"></script>
+<body>
+  <!-- <main class="main-wrapper"> -->
+
+  </main>
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="./node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="./node_modules/sammy/lib/min/sammy-0.7.6.min.js"></script>
+  <script src="./node_modules/sammy/lib/min/plugins/sammy.handlebars-0.7.6.min.js"></script>
+  <script type="module" src="./scripts/app.js"></script>
 </body>
 
 </html>

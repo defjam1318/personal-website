@@ -1,0 +1,33 @@
+{
+  "name": "tomailiev.com",
+  "version": "1.0.0",
+  "description": "ownWebsite",
+  "private": "true",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "serve": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/defjam1318/website.git"
+  },
+  "author": "TI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/defjam1318/website/issues"
+  },
+  "homepage": "https://github.com/defjam1318/website#readme",
+  "dependencies": {
+    "bootstrap": "4.5.2",
+    "handlebars": "4.7.6",
+    "jquery": "3.5.1",
+    "sammy": "0.7.6",
+    "webpack": "4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.0"
+  }
+}
