@@ -1,24 +1,23 @@
 {{>header}}
-<div id="audios" class="container p-2">
-  <div class="p-5"></div>
+<div id="audios" class="container py-2">
+  <div class="py-5"></div>
   <h1 class="pagetitle">audio</h1>
 
   <div class="row">
-    
+    {{#each items}}
     <div class="media py-3">
       <iframe scrolling="no" frameborder="no" allow="autoplay"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/289913880&color=%23b55e33&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+        src="{{this.audioUrl}}"></iframe>
       <div class="card-body">
         <div class="media-body">
-          <h5 class="mt-0">Media heading</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
-          vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-          lacinia congue felis in faucibus.
+          <h5 class="mt-0">{{this.title}}</h5>
+          <p>{{this.description}}</p>
         </div>
       </div>
     </div>
+    {{/each}}
 
-    <div class="media py-3">
+    {{!-- <div class="media py-3">
       <iframe scrolling="no" frameborder="no" allow="autoplay"
         src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/289913880&color=%23b55e33&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
       <div class="card-body">
@@ -29,9 +28,9 @@
           lacinia congue felis in faucibus.</p>
         </div>
       </div>
-    </div>
+    </div> --}}
 
-    <div class="media py-3">
+    {{!-- <div class="media py-3">
       <iframe scrolling="no" frameborder="no" allow="autoplay"
         src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/289913880&color=%23b55e33&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
       <div class="card-body">
@@ -42,7 +41,7 @@
           lacinia congue felis in faucibus.
         </div>
       </div>
-    </div>
+    </div> --}}
   </div>
 </div>
 {{>footer}}

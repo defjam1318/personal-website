@@ -1,7 +1,6 @@
-export async function contact() {
-    this.partials = await this.app.partialLoader.call(this);
-    this.headerColor = 'light';
-    this.contact = 'active';
+export function contact() {
+    const headerColor = 'light';
+    const contact = 'active';
 
     // try {
     //     this.items = await (await this.app.requestData('getAll')).json();
@@ -18,5 +17,6 @@ export async function contact() {
     //     alert(err);
     // }
     
-    this.partial('../../templates/contact.hbs');
+    const el = this.app.contact({ headerColor, contact });
+    this.swap(el);
 }

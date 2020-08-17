@@ -1,11 +1,27 @@
-export async function video() {
-    this.partials = await this.app.partialLoader.call(this);
-    this.headerColor = 'light';
-    this.media = 'active';
+export function video() {
+    const headerColor = 'light';
+    const media = 'active';
     $(window).unbind('scroll');
 
+    this.app.requestData('videos', 'getAll')
+        .then(res => res.json())
+        .then(items => {
+            if (items.hasOwnProperty('errorData')) {
+                const errorMessage = items.message;
+                items = null;
+                throw new Error(errorMessage);
+            }
+            const el = this.app.video({ items, headerColor, media });
+            this.swap(el);
+            this.app.navbarChanger(50, 'bg-light');
+        })
+        .catch(err => {
+            console.error(err);
+        });
+
+
     // try {
-    //     this.items = await (await this.app.requestData('getAll')).json();
+    //     this.items = await (await this.app.requestData('videos', 'getAll')).json();
     //     // this.app.toggleBox('loadingBox');
     //     if (this.items.hasOwnProperty('errorData')) {
     //         const errorMessage = this.items.message;
@@ -16,10 +32,10 @@ export async function video() {
     //     // this.partial('../../templates/cinema.hbs', { username, items, search });
     // } catch (err) {
     //     // this.app.toggleBox('errorBox', err);
-    //     alert(err);
+    //     console.error(err);
     // }
     
-    this.partial('../../templates/video.hbs').then(() => {
-        this.app.navbarChanger(50, 'bg-light');
-    });
+    // this.partial('../../templates/video.hbs').then(() => {
+    //     this.app.navbarChanger(50, 'bg-light');
+    // });
 }

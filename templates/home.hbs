@@ -17,31 +17,18 @@
       <div class="row">
             <div id="home-bio" class="col-md-8">
                   <h3>Bio</h3>
-                  <p>Toma Iliev is a violinist focused on historically informed performance. Holder of the Ruth and
-                        Charles
-                        Poindexter
-                        chair
-                        with the Portland Baroque Orchestra, recent engagements include performances with Philharmonia
-                        Baroque
-                        Orchestra,
-                        American Bach Soloists, Oregon Bach Festival, Indianapolis Baroque Orchestra, Clarion Music
-                        Society,
-                        and the
-                        Valley
-                        of
-                        the Moon Festival, as well as broadcasts on MediciTV, BBC3 radio, WQXR, and the CBC “Rush Hour”
-                        series.</p>
+                  <p>{{miniBio}}</p>
                   <a href="#/about">Read more</a>
             </div>
             <div class="col-md-3 border-left d-none d-md-block pl-4">
                   <h3 class="pb-3">Latest</h3>
                   <div class="card" style="width: 18rem;">
                         <div class="card-body">
-                              <h5 class="card-title">Portland Baroque Orchestra</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">Trousers and Tiaras</h6>
-                              <p class="card-text">10.3.2019: First Baptist Church</p>
-                              <a href="pbo.org" class="card-link">More info</a>
-                              <a href="#" class="card-link">Buy tickets</a>
+                              <h5 class="card-title">{{latest.groupName}}</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">{{latest.eventName}}</h6>
+                              <p class="card-text">{{latest.date}}: {{latest.location}}</p>
+                              <a href="{{latest.eventUrl}}" class="card-link">More info</a>
+                              <a href="#/details{{latest.objectId}}" class="card-link">Buy tickets</a>
                         </div>
                   </div>
             </div>
@@ -56,39 +43,23 @@
                               <tr>
                                     <th scope="col">Date</th>
                                     <th scope="col">Event</th>
-                                    <th scope="col">Location</th>
-                                    <th scope="col">Venue</th>
+                                    <th scope="col" class="d-none d-md-table-cell">Location</th>
+                                    <th scope="col" class="d-none d-md-table-cell">Venue</th>
                                     <th scope="col">More</th>
                               </tr>
                         </thead>
                         <tbody>
+                              {{#each events}}
                               <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
+                                    <th scope="row"><span>{{this.date}}</span><br /><span>{{this.time}}</span></th>
+                                    <td><span>{{this.eventName}}</span><br /><span>{{this.groupName}}</span></td>
+                                    <td class="d-none d-md-table-cell">{{this.location}}</td>
+                                    <td class="d-none d-md-table-cell">{{this.venue}}</td>
                                     <td>
-                                          <button type="button" class="btn btn-light btn-sm col-4">Tickets</button>
+                                          <a type="button" class="btn btn-light btn-sm col-4" href="{{this.eventUrl}}" target="_blind">Tickets</a>
                                     </td>
                               </tr>
-                              <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    <td>
-                                          <button type="button" class="btn btn-light btn-sm col-4">Tickets</button>
-                                    </td>
-                              </tr>
-                              <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    <td>
-                                          <button type="button" class="btn btn-light btn-sm col-4">Tickets</button>
-                                    </td>
-                              </tr>
+                              {{/each}}
                         </tbody>
                   </table>
                   <a href="#/upcoming">View more</a>

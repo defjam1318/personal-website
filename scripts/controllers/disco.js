@@ -1,7 +1,6 @@
-export async function disco() {
-    this.partials = await this.app.partialLoader.call(this);
-    this.headerColor = 'light';
-    this.media = 'active';
+export function disco() {
+    const headerColor = 'light';
+    const disco = 'active';
     $(window).unbind('scroll');
 
     // try {
@@ -18,8 +17,7 @@ export async function disco() {
     //     // this.app.toggleBox('errorBox', err);
     //     alert(err);
     // }
-    
-    this.partial('../../templates/disco.hbs').then(() => {
-        this.app.navbarChanger(50, 'bg-light');
-    });
+    const el = this.app.disco({ headerColor, disco });
+    this.swap(el);
+    this.app.navbarChanger(50, 'bg-light');
 }

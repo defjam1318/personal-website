@@ -1,7 +1,6 @@
-export async function upcoming() {
-    this.partials = await this.app.partialLoader.call(this);
-    this.headerColor = 'light';
-    this.calendar = 'active';
+export function upcoming() {
+    const headerColor = 'light';
+    const calendar = 'active';
 
     
     // try {
@@ -19,5 +18,7 @@ export async function upcoming() {
     //     alert(err);
     // }
     
-    this.partial('../../templates/upcoming.hbs');
+    const el = this.app.upcoming({ headerColor, calendar });
+    this.swap(el);
+    this.app.navbarChanger(50, 'bg-light');
 }

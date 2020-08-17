@@ -1,24 +1,38 @@
-export async function home() {
-    this.partials = await this.app.partialLoader.call(this);
-    this.headerColor = 'dark';
-    this.home = 'active';
+export function home() {
+    const headerColor = 'dark';
+    const home = 'active';
+    const miniBio = this.app.bio[0];
     $(window).unbind('scroll');
-    // try {
-    //     this.items = await (await this.app.requestData('getAll')).json();
-    //     // this.app.toggleBox('loadingBox');
-    //     if (this.items.hasOwnProperty('errorData')) {
-    //         const errorMessage = this.items.message;
-    //         this.items = null;
-    //         throw new Error(errorMessage);
-    //     }
-    //     // this.items.sort((a, b) => b.peopleInterested - a.peopleInterested);
-    //     // this.partial('../../templates/cinema.hbs', { username, items, search });
-    // } catch (err) {
-    //     // this.app.toggleBox('errorBox', err);
-    //     alert(err);
-    // }
 
-    this.partial('../../templates/home.hbs').then(() => {
-        this.app.navbarChanger(200, 'bg-secondary');
-    });
+    function fixTime(num) {
+        if (num.toString().length < 2) {
+            return `0${num}`
+        }
+        return num;
+    }
+
+    this.app.requestData('events', 'sort')
+        .then(res => res.json())
+        .then(items => {
+            if (items.hasOwnProperty('errorData')) {
+                const errorMessage = items.message;
+                items = null;
+                throw new Error(errorMessage);
+            }
+            const events = items.slice(0, 3)
+                .map(i => {
+                    const date = new Date(i.dateTime);
+                    const dateTranslated = `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`;
+                    const timeTranslated = `${fixTime(date.getHours())}:${fixTime(date.getMinutes())}`;
+                    return Object.assign(i, { date: dateTranslated, time: timeTranslated });
+                });
+            const latest = events[0];
+            const el = this.app.home({ miniBio, headerColor, home, events, latest });
+            this.swap(el);
+            this.app.navbarChanger(200, 'bg-dark');
+        })
+        .catch(err => {
+            console.error(err);
+        });
+
 }

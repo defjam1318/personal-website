@@ -1,10 +1,26 @@
-export async function audio() {
-    this.partials = await this.app.partialLoader.call(this);
-    this.headerColor = 'light';
-    this.media = 'active';
+export function audio() {
+    const headerColor = 'light';
+    const media = 'active';
+    $(window).unbind('scroll');
+
+    this.app.requestData('audios', 'getAll')
+        .then(res => res.json())
+        .then(items => {
+            if (items.hasOwnProperty('errorData')) {
+                const errorMessage = items.message;
+                items = null;
+                throw new Error(errorMessage);
+            }
+            const el = this.app.audio({ items, headerColor, media });
+            this.swap(el);
+        })
+        .catch(err => {
+            console.error(err);
+        });
+
 
     // try {
-    //     this.items = await (await this.app.requestData('getAll')).json();
+    //     this.items = await (await this.app.requestData('audios', 'getAll')).json();
     //     // this.app.toggleBox('loadingBox');
     //     if (this.items.hasOwnProperty('errorData')) {
     //         const errorMessage = this.items.message;
@@ -15,8 +31,8 @@ export async function audio() {
     //     // this.partial('../../templates/cinema.hbs', { username, items, search });
     // } catch (err) {
     //     // this.app.toggleBox('errorBox', err);
-    //     alert(err);
+    //     console.error(err);
     // }
-    
-    this.partial('../../templates/audio.hbs');
+
+
 }

@@ -1,24 +1,23 @@
 {{>header}}
-<div id="audios" class="container p-2">
+<div id="videos" class="container p-2">
   <div class="p-5"></div>
   <h1 class="pagetitle">video</h1>
 
   <div class="row">
-
+    {{#each items}}
     <div class="media py-3">
-      <iframe src="https://www.youtube.com/embed/YXvoxat8gKA" frameborder="0" allow="autoplay; encrypted-media;"
+      <iframe src="{{this.videoUrl}}" frameborder="0" allow="autoplay; encrypted-media;"
         allowfullscreen></iframe>
       <div class="card-body">
         <div class="media-body">
-          <h5 class="mt-0">Media heading</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
-          vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-          lacinia congue felis in faucibus.
+          <h5 class="mt-0">{{this.title}}</h5>
+          <p>{{this.description}}</p>
         </div>
       </div>
     </div>
+    {{/each}}
 
-    <div class="media py-3">
+    {{!-- <div class="media py-3">
       <iframe src="https://www.youtube.com/embed/vKzPIB7o9GM?rel=0" frameborder="0" allow="autoplay; encrypted-media"
         allowfullscreen></iframe>
       <div class="card-body">
@@ -29,9 +28,9 @@
           lacinia congue felis in faucibus.
         </div>
       </div>
-    </div>
+    </div> --}}
 
-    <div class="media py-3">
+    {{!-- <div class="media py-3">
       <iframe src="https://www.youtube.com/embed/32frA6OqV5w" frameborder="0" allow="autoplay; encrypted-media"
         allowfullscreen></iframe>
       <div class="card-body">
@@ -42,9 +41,9 @@
           lacinia congue felis in faucibus.
         </div>
       </div>
-    </div>
+    </div> --}}
 
-    <div class="media py-3">
+    {{!-- <div class="media py-3">
       <iframe src="https://www.youtube.com/embed/32frA6OqV5w" frameborder="0" allow="autoplay; encrypted-media"
         allowfullscreen></iframe>
       <div class="card-body">
@@ -55,9 +54,9 @@
           lacinia congue felis in faucibus.
         </div>
       </div>
-    </div>
+    </div> --}}
 
-    <div class="media py-3">
+    {{!-- <div class="media py-3">
       <iframe src="https://www.youtube.com/embed/AoUnaSbuvjU?rel=0" frameborder="0"
         allow="autoplay; encrypted-media" allowfullscreen></iframe>
       <div class="card-body">
@@ -68,7 +67,7 @@
           lacinia congue felis in faucibus.
         </div>
       </div>
-    </div>
+    </div> --}}
   </div>
 </div>
 {{>footer}}

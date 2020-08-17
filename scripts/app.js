@@ -1,24 +1,54 @@
+import 'popper.js';
+import 'bootstrap';
+import 'bootstrap/js/dist/util';
+import 'handlebars/runtime';
+const Sammy = require('sammy');
+
+
 import * as modules from './modules/index.js';
 import * as controllers from './controllers/index.js';
 import requestData from './data.js';
+import txt from '../text/bio.txt';
+
+
+const about = require('../templates/about.hbs');
+const audio = require('../templates/audio.hbs');
+const contact = require('../templates/contact.hbs');
+const disco = require('../templates/disco.hbs');
+const gallery = require('../templates/gallery.hbs');
+const home = require('../templates/home.hbs');
+const upcoming = require('../templates/upcoming.hbs');
+const video = require('../templates/video.hbs');
 
 
 window.addEventListener('load', () => {
     const app = Sammy('body', function () {
-        this.use('Handlebars', 'hbs');
-
-        const appId = 'D55AF237-11BA-E8A9-FF93-AF1029A07C00';
-        const restApi = '7D296D5E-01C9-4B4A-B49D-54378977D3A7';
-        const dataTable = '';
-
-        this.partialLoader = modules.partialLoader('../templates');
-        // this.requestData = requestData(appId, restApi, dataTable);
+        
+        const appId = '57BC2223-608C-E384-FF26-3BBF8D8DD100';
+        const restApi = '1BCC7410-A60B-4367-9130-54260B590E53';
+        
+        // this.partialLoader = modules.partialLoader('../templates');
+        this.requestData = requestData(appId, restApi);
         // this.toggleBox = modules.toggleBox;
         // this.validator = modules.validator;
-        this.getStorageVar = modules.getStorageVar;
-        this.storageOperator = modules.storageOperator;
+        // this.getStorageVar = modules.getStorageVar;
+        // this.storageOperator = modules.storageOperator;
         this.navbarChanger = modules.navbarChanger;
 
+        this.about = about;
+        this.audio = audio;
+        this.contact = contact;
+        this.disco = disco;
+        this.gallery = gallery;
+        this.home = home;
+        this.upcoming = upcoming;
+        this.video = video;
+
+        this.bio = txt.split('$$$').map(x => x.trim());
+
+        // this.swap = function (content) {
+        //     this.$element().hide('fast').html(content).show('slow');
+        // }
         // this.before({except: {verb:'post'}}, () => this.toggleBox('loadingBox'));
         // this.before({}, partialLoader);
 
@@ -57,5 +87,5 @@ window.addEventListener('load', () => {
 
     });
 
-    app.run();
+    app.run('/');
 })
