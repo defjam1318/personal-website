@@ -1,7 +1,8 @@
 export function contact() {
     const headerColor = 'light';
     const contact = 'active';
-
+    $(window).scrollTop(0);
+    $(window).unbind('scroll');
     // try {
     //     this.items = await (await this.app.requestData('getAll')).json();
     //     // this.app.toggleBox('loadingBox');

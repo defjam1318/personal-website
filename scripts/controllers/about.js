@@ -1,6 +1,7 @@
 export function about() {
     const headerColor = 'light';
     const about = 'active';
+    $(window).scrollTop(0);
     $(window).unbind('scroll');
     const bio = this.app.bio;
     const el = this.app.about({ headerColor, about, bio });

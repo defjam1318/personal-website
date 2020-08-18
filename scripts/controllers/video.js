@@ -1,6 +1,8 @@
 export function video() {
     const headerColor = 'light';
     const media = 'active';
+    let vids;
+    $(window).scrollTop(0);
     $(window).unbind('scroll');
 
     this.app.requestData('videos', 'getAll')
@@ -11,12 +13,14 @@ export function video() {
                 items = null;
                 throw new Error(errorMessage);
             }
-            const el = this.app.video({ items, headerColor, media });
-            this.swap(el);
-            this.app.navbarChanger(50, 'bg-light');
+            vids = items.slice();
         })
         .catch(err => {
             console.error(err);
+        }).finally(() => {
+            const el = this.app.video({ vids, headerColor, media });
+            this.swap(el);
+            this.app.navbarChanger(50, 'bg-light');
         });
 
 

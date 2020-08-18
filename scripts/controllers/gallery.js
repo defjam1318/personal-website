@@ -1,6 +1,8 @@
 export function gallery() {
     const headerColor = 'light';
     const media = 'active';
+    let pics;
+    $(window).scrollTop(0);
     $(window).unbind('scroll');
 
     this.app.requestData('images', 'getAll')
@@ -11,12 +13,16 @@ export function gallery() {
                 items = null;
                 throw new Error(errorMessage);
             }
-            items = items.reduce((a, c, i) => {
+            pics = items.reduce((a, c, i) => {
                 c.index = i;
                 return a.concat(c);
             }, []);
-            const indexes = items.reduce((a, _c, i) => a.concat(i), []);
-            const el = this.app.gallery({ items, indexes, headerColor, media });
+        })
+        .catch(err => {
+            console.error(err);
+        }).finally(() => {
+            const indexes = pics.reduce((a, _c, i) => a.concat(i), []);
+            const el = this.app.gallery({ pics, indexes, headerColor, media });
             this.swap(el);
             this.app.navbarChanger(50, 'bg-light');
             document.querySelector('.carousel-inner').addEventListener('contextmenu', (e) => {
@@ -24,9 +30,6 @@ export function gallery() {
                     e.preventDefault();
                 }
             });
-        })
-        .catch(err => {
-            console.error(err);
         });
 
 

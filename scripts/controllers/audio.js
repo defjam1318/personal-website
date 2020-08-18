@@ -1,6 +1,8 @@
 export function audio() {
     const headerColor = 'light';
     const media = 'active';
+    let audios;
+    $(window).scrollTop(0);
     $(window).unbind('scroll');
 
     this.app.requestData('audios', 'getAll')
@@ -11,11 +13,14 @@ export function audio() {
                 items = null;
                 throw new Error(errorMessage);
             }
-            const el = this.app.audio({ items, headerColor, media });
-            this.swap(el);
+            audios = items.slice();
         })
         .catch(err => {
             console.error(err);
+        }).finally(() => {
+            const el = this.app.audio({ audios, headerColor, media });
+            this.swap(el);
+            this.app.navbarChanger(50, 'bg-light');
         });
 
 

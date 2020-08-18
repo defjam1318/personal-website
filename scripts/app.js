@@ -23,10 +23,9 @@ const video = require('../templates/video.hbs');
 
 window.addEventListener('load', () => {
     const app = Sammy('body', function () {
-        
+        // 'https://www.google.com/maps/embed/v1/place?key=AIzaSyCChiTGKnxDKxYAB0fvIk78xqIbVog2nV8&q=St.+Paul's+Chapel+of+Trinity+Church+Wall+Street'
         const appId = '57BC2223-608C-E384-FF26-3BBF8D8DD100';
         const restApi = '1BCC7410-A60B-4367-9130-54260B590E53';
-        const gApi = 'AIzaSyCChiTGKnxDKxYAB0fvIk78xqIbVog2nV8';
         // this.partialLoader = modules.partialLoader('../templates');
         this.requestData = requestData(appId, restApi);
         // this.toggleBox = modules.toggleBox;
@@ -36,6 +35,7 @@ window.addEventListener('load', () => {
         this.navbarChanger = modules.navbarChanger;
         this.fixTime = modules.fixTime;
         
+        this.gApi = 'AIzaSyCChiTGKnxDKxYAB0fvIk78xqIbVog2nV8';
         this.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         this.about = about;
         this.audio = audio;
@@ -50,7 +50,7 @@ window.addEventListener('load', () => {
         this.bio = txt.split('$$$').map(x => x.trim());
 
         // this.swap = function (content) {
-        //     this.$element().hide('fast').html(content).show('slow');
+        //     this.$element().hide('fast', 'ease-in', () => html(content).show('slow'));
         // }
         // this.before({except: {verb:'post'}}, () => this.toggleBox('loadingBox'));
         // this.before({}, partialLoader);

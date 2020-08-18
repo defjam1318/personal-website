@@ -1,6 +1,7 @@
 export function disco() {
     const headerColor = 'light';
     const disco = 'active';
+    $(window).scrollTop(0);
     $(window).unbind('scroll');
 
     // try {
