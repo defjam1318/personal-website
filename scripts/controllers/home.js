@@ -2,14 +2,10 @@ export function home() {
     const headerColor = 'dark';
     const home = 'active';
     const miniBio = this.app.bio[0];
+    let events;
+    let latest;
     $(window).unbind('scroll');
 
-    function fixTime(num) {
-        if (num.toString().length < 2) {
-            return `0${num}`
-        }
-        return num;
-    }
 
     this.app.requestData('events', 'sort')
         .then(res => res.json())
@@ -19,20 +15,22 @@ export function home() {
                 items = null;
                 throw new Error(errorMessage);
             }
-            const events = items.slice(0, 3)
+            events = items.slice(0, 3)
                 .map(i => {
                     const date = new Date(i.dateTime);
-                    const dateTranslated = `${date.getMonth()}-${date.getDate()}-${date.getFullYear()}`;
-                    const timeTranslated = `${fixTime(date.getHours())}:${fixTime(date.getMinutes())}`;
+                    const dateTranslated = `${this.app.months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+                    const timeTranslated = `${this.app.fixTime(date.getHours())}:${this.app.fixTime(date.getMinutes())}`;
                     return Object.assign(i, { date: dateTranslated, time: timeTranslated });
                 });
-            const latest = events[0];
-            const el = this.app.home({ miniBio, headerColor, home, events, latest });
-            this.swap(el);
-            this.app.navbarChanger(200, 'bg-dark');
+            latest = events[0];
         })
         .catch(err => {
             console.error(err);
+        })
+        .finally(() => {
+            const el = this.app.home({ miniBio, headerColor, home, events, latest });
+            this.swap(el);
+            this.app.navbarChanger(200, 'bg-dark');
         });
 
 }

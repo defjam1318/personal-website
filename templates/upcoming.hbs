@@ -1,37 +1,69 @@
 {{>header}}
 <div class="py-5"></div>
 <div class="container p-5">
-    <h1 class="py-2">Performances</h1>
-    <table class="table table-light table-hover">
-                        <thead class="thead-dark">
-                              <tr>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Event</th>
-                                    <th scope="col">Location</th>
-                                    <th scope="col">Venue</th>
-                              </tr>
-                        </thead>
-                        <tbody>
-                              <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                              </tr>
-                              <tr class="p-2">
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                              </tr>
-                              <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                              </tr>
-                        </tbody>
-                  </table>
-    
+      <h1 class="py-2">Performances</h1>
+      <table class="table table-light table-hover">
+            <thead class="thead-dark">
+                  <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Event</th>
+                        <th scope="col" class="d-none d-md-table-cell">Location</th>
+                        <th scope="col" class="d-none d-md-table-cell">Venue</th>
+                        <th scope="col" class="d-none d-md-table-cell">Tickets</th>
+                        <th scope="col">More</th>
+
+                  </tr>
+            </thead>
+            <tbody>
+                  {{#each events}}
+                  <tr>
+                        <th scope="row"><span>{{this.date}}</span><br /><span>{{this.time}}</span></th>
+                        <td><span class="font-italic">{{this.eventName}}</span><br /><span>{{this.groupName}}</span>
+                        </td>
+                        <td class="d-none d-md-table-cell">{{this.location}}</td>
+                        <td class="d-none d-md-table-cell">{{this.venue}}</td>
+                        <td class="d-none d-md-table-cell">
+                              <a type="button" class="btn btn-dark btn-sm" href="{{this.eventUrl}}"
+                                    target="blank">Tickets</a>
+                        </td>
+                        <td>
+                              <a type="button" class="btn btn-dark btn-sm" data-toggle="modal"
+                                    data-target="#modal{{this.objectId}}">
+                                    Details
+                              </a>
+                        </td>
+                  </tr>
+                  <!-- Modal -->
+                  <div class="modal fade" id="modal{{this.objectId}}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                              <div class="modal-content">
+                                    <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">{{this.eventName}}</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                          </button>
+                                    </div>
+                                    <div class="modal-body">
+                                          {{#if this.mapCoordinates}}
+                                          <iframe src="{{this.mapCoordinates}}" width="300" height="200" frameborder="0"
+                                                style="border:0;" allowfullscreen="" aria-hidden="false"
+                                                tabindex="0"></iframe>
+                                          {{else}}
+                                          <p>{{this.alt}}</p>
+                                          {{/if}}
+                                    </div>
+                                    <div class="modal-footer">
+                                          <button type="button" class="btn btn-dark btn-sm"
+                                                data-dismiss="modal">Close</button>
+                                          <button type="button" class="btn btn-dark btn-sm">Save changes</button>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  {{/each}}
+            </tbody>
+      </table>
+
 </div>
 {{>footer}}

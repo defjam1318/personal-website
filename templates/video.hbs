@@ -3,121 +3,16 @@
   <div class="p-5"></div>
   <h1 class="pagetitle">video</h1>
 
-  <div class="row">
-    {{#each items}}
-    <div class="media py-3">
-      <iframe src="{{this.videoUrl}}" frameborder="0" allow="autoplay; encrypted-media;"
-        allowfullscreen></iframe>
-      <div class="card-body">
-        <div class="media-body">
+  {{#each items}}
+  <div class="row py-3">
+    <div class="col-md-4">
+      <iframe src="{{this.videoUrl}}" frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen></iframe>
+    </div>
+      <div class="col-md-6">
           <h5 class="mt-0">{{this.title}}</h5>
           <p>{{this.description}}</p>
-        </div>
       </div>
-    </div>
-    {{/each}}
-
-    {{!-- <div class="media py-3">
-      <iframe src="https://www.youtube.com/embed/vKzPIB7o9GM?rel=0" frameborder="0" allow="autoplay; encrypted-media"
-        allowfullscreen></iframe>
-      <div class="card-body">
-        <div class="media-body">
-          <h5 class="mt-0">Media heading</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
-          vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-          lacinia congue felis in faucibus.
-        </div>
-      </div>
-    </div> --}}
-
-    {{!-- <div class="media py-3">
-      <iframe src="https://www.youtube.com/embed/32frA6OqV5w" frameborder="0" allow="autoplay; encrypted-media"
-        allowfullscreen></iframe>
-      <div class="card-body">
-        <div class="media-body">
-          <h5 class="mt-0">Media heading</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
-          vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-          lacinia congue felis in faucibus.
-        </div>
-      </div>
-    </div> --}}
-
-    {{!-- <div class="media py-3">
-      <iframe src="https://www.youtube.com/embed/32frA6OqV5w" frameborder="0" allow="autoplay; encrypted-media"
-        allowfullscreen></iframe>
-      <div class="card-body">
-        <div class="media-body">
-          <h5 class="mt-0">Media heading</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
-          vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-          lacinia congue felis in faucibus.
-        </div>
-      </div>
-    </div> --}}
-
-    {{!-- <div class="media py-3">
-      <iframe src="https://www.youtube.com/embed/AoUnaSbuvjU?rel=0" frameborder="0"
-        allow="autoplay; encrypted-media" allowfullscreen></iframe>
-      <div class="card-body">
-        <div class="media-body">
-          <h5 class="mt-0">Media heading</h5>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio,
-          vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec
-          lacinia congue felis in faucibus.
-        </div>
-      </div>
-    </div> --}}
   </div>
+  {{/each}}
 </div>
 {{>footer}}
-{{!-- <article id="videos">
-    <table>
-      <tr class="video">
-        <td class="videolink"><iframe src="https://www.youtube.com/embed/YXvoxat8gKA" frameborder="0"
-            allow="autoplay; encrypted-media;" allowfullscreen></iframe></td>
-        <td class="videotitle">Valley of the moon music festival - Felix Mendelssohn - Octet for Strings, Op. 20: IV.
-          Presto</td>
-        <td class="videscription">Toma Iliev, Monica Huggett, Jessica Park, Carla Moore - violins; Kati Kyme, Isabelle
-          Seula Lee - violas; Eugenio Solinas, Tanya Tomkins - cellos</td>
-      </tr>
-    </table>
-    <table>
-      <tr class="video">
-        <td class="videolink"><iframe src="https://www.youtube.com/embed/vKzPIB7o9GM?rel=0" frameborder="0"
-            allow="autoplay; encrypted-media" allowfullscreen></iframe></td>
-        <td class="videotitle">sonnambula & friends - wolfgang amadeus mozart - divertimento in d major, k136</td>
-        <td class="videscription">the hispanic society conert series 2017-2018<br />sonnambula & friends</td>
-      </tr>
-      <tr class="video">
-        <td class="videolink"><iframe src="https://www.youtube.com/embed/32frA6OqV5w" frameborder="0"
-            allow="autoplay; encrypted-media" allowfullscreen></iframe></td>
-        <td class="videotitle">sonnambula at the met museum</td>
-        <td class="videscription">bouree d'Avignonez</td>
-      </tr>
-      <tr class="video">
-        <td class="videolink"><iframe src="https://www.youtube.com/embed/bpVg9fcrQGU?rel=0" frameborder="0"
-            allow="autoplay; encrypted-media" allowfullscreen></iframe></td>
-        <td class="videotitle">pablo heras-casado master class at the juilliard school</td>
-        <td class="videscription">mozart, flute quartet no. 1</td>
-      </tr>
-      <tr class="video">
-        <td class="videolink"><iframe src="https://www.youtube.com/embed/IsIzKRlU7Gw?rel=0" frameborder="0"
-            allow="autoplay; encrypted-media" allowfullscreen></iframe></td>
-        <td class="videotitle">f. couperin - premier concert</td>
-        <td class="videscription">selections from concert royaux</td>
-      </tr>
-      <tr class="video">
-        <td class="videolink"><iframe src="https://www.youtube.com/embed/RaRBobMIgIM?rel=0" frameborder="0"
-            allow="autoplay; encrypted-media"></iframe> </td>
-        <td class="videotitle">j.s.bach - grave and fuga</td>
-        <td class="videscription">from sonata no.2 in a minor BWV 1003</td>
-      </tr>
-      <tr class="video">
-        <td class="videolink"><iframe width="560" height="315" src="https://www.youtube.com/embed/AoUnaSbuvjU?rel=0"
-            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></td>
-        <td class="videotitle">j.s.bach - andante and allegro</td>
-        <td class="videscription">from sonata no.2 in a minor BWV 1003</td>
-      </tr>
-    </table>
-  </article> --}}

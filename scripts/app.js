@@ -26,7 +26,7 @@ window.addEventListener('load', () => {
         
         const appId = '57BC2223-608C-E384-FF26-3BBF8D8DD100';
         const restApi = '1BCC7410-A60B-4367-9130-54260B590E53';
-        
+        const gApi = 'AIzaSyCChiTGKnxDKxYAB0fvIk78xqIbVog2nV8';
         // this.partialLoader = modules.partialLoader('../templates');
         this.requestData = requestData(appId, restApi);
         // this.toggleBox = modules.toggleBox;
@@ -34,7 +34,9 @@ window.addEventListener('load', () => {
         // this.getStorageVar = modules.getStorageVar;
         // this.storageOperator = modules.storageOperator;
         this.navbarChanger = modules.navbarChanger;
-
+        this.fixTime = modules.fixTime;
+        
+        this.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         this.about = about;
         this.audio = audio;
         this.contact = contact;
@@ -43,6 +45,7 @@ window.addEventListener('load', () => {
         this.home = home;
         this.upcoming = upcoming;
         this.video = video;
+
 
         this.bio = txt.split('$$$').map(x => x.trim());
 
@@ -69,7 +72,7 @@ window.addEventListener('load', () => {
 
         // this.get('#/cinema', cinema);
         // this.get('#/my-movies', myMovies);
-        this.get('#/details/:id', controllers.details);
+        // this.get('#/details/:id', controllers.details);
 
         // this.get('#/create', controllers.create);
         // this.get('#/edit/:id', controllers.edit);
@@ -83,8 +86,6 @@ window.addEventListener('load', () => {
         // this.post('#/create', (ctx) => { controllers.createPost.call(ctx) });
         // this.post('#/edit/:id', (ctx) => { controllers.editPost.call(ctx) });
         // this.post('#/delete/:id', (ctx) => { controllers.deletePost.call(ctx) });
-
-
     });
 
     app.run('/');
