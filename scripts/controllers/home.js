@@ -1,10 +1,10 @@
 export function home() {
     const headerColor = 'dark';
     const home = 'active';
+    const isHome = ' home';
     const miniBio = this.app.bio[0];
     let events;
     let latest;
-    $(window).scrollTop(0);
     $(window).unbind('scroll');
 
 
@@ -32,9 +32,11 @@ export function home() {
             console.error(err);
         })
         .finally(() => {
-            const el = this.app.home({ miniBio, headerColor, home, events, latest });
+            $(window).scrollTop(0);
+            const el = this.app.home({ miniBio, headerColor, home, events, latest, isHome });
             this.swap(el);
-            this.app.navbarChanger(200, 'bg-dark');
+            this.app.modalEdit();
+            this.app.navbarChanger(50, 'bg-dark');
         });
 
 }

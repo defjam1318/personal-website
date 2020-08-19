@@ -27,62 +27,19 @@
                                     target="blank">Tickets</a>
                         </td>
                         <td>
-                              <a type="button" class="btn btn-dark btn-sm" data-toggle="modal"
-                                    data-target="#modal{{this.objectId}}">
+                              <a type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#eventModal"
+                                    data-event-name="{{this.eventName}}" data-alt="{{this.alt}}"
+                                    data-map-coordinates="{{this.mapCoordinates}}" data-group-name="{{this.groupName}}"
+                                    data-date="{{this.date}}" data-time="{{this.time}}"
+                                    data-event-url="{{this.eventUrl}}">
                                     Details
                               </a>
                         </td>
                   </tr>
-                  <!-- Modal -->
-                  <div class="modal fade" id="modal{{this.objectId}}" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                              <div class="modal-content">
-                                    <div class="modal-header">
-                                          <h5 class="modal-title" id="exampleModalLabel">{{this.eventName}}</h5>
-                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                          </button>
-                                    </div>
-                                    <div class="modal-body">
-                                          <div class="container-fluid">
-                                                <div class="row">
-                                                      <div class="col-7">
-                                                            {{#if this.alt}}
-                                                            <p>{{this.alt}}</p>
-                                                            {{else}}
-                                                            <div class="embed-responsive embed-responsive-1by1">
-                                                                  <iframe src="{{this.mapCoordinates}}" frameborder="0"
-                                                                        style="border:0;" allowfullscreen="false"
-                                                                        aria-hidden="false" tabindex="0"></iframe>
-                                                            </div>
-                                                            {{/if}}
-                                                      </div>
-                                                      <div class="col-5">
-                                                            <div class="card">
-                                                                  <div class="card-body">
-                                                                        <h5 class="card-title">{{this.groupName}}</h5>
-                                                                        <p class="card-text">{{this.date}} -
-                                                                              {{this.time}}</p>
-                                                                        <a href="{{this.eventUrl}}" target="blank"
-                                                                              class="btn btn-dark btn-sm">Tickets</a>
-                                                                  </div>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                          </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                          <button type="button" class="btn btn-dark btn-sm"
-                                                data-dismiss="modal">Close</button>
-                                          <button type="button" class="btn btn-dark btn-sm">Add to calendar</button>
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
                   {{/each}}
             </tbody>
       </table>
-
+      <!-- Modal -->
+      {{>modal}} 
 </div>
 {{>footer}}

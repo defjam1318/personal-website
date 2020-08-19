@@ -1,7 +1,6 @@
 export function contact() {
     const headerColor = 'light';
     const contact = 'active';
-    $(window).scrollTop(0);
     $(window).unbind('scroll');
     // try {
     //     this.items = await (await this.app.requestData('getAll')).json();
@@ -17,7 +16,9 @@ export function contact() {
     //     // this.app.toggleBox('errorBox', err);
     //     alert(err);
     // }
-    
+
+    $(window).scrollTop(0);
     const el = this.app.contact({ headerColor, contact });
     this.swap(el);
+    this.app.navbarChanger(50, 'bg-light');
 }

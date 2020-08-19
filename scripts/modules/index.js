@@ -4,5 +4,6 @@ export * from './toggleBox.js';
 export * from './validator.js';
 export * from './navbar.js';
 export * from './fixTime.js';
+export * from './modalEdit';
 
 

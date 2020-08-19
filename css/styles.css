@@ -1,13 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
+
+body {
+    font-family: 'Alata', sans-serif !important;
+}
+
 .navbar {
     background-color: transparent;
     transition: background-color 0.2s ease;
 }
 
 @media (max-width: 768px) {
-    .navbar {
+    #navbarSupportedContent:not(.home) {
+        background-color: #f8f9fa;
+    }
+    #navbarSupportedContent.home {
         background-color: #343a40;
     }
 }
+
+/* div.dropdown-menu {
+    display: block !important;
+    visibility: hidden;
+    height: 0px;
+    padding: 0px;
+    transition: height 0.3s;
+} */
+
+/* div.dropdown-menu a {
+    animation-duration: 2s;
+    animation-name: slideDown;
+}
+
+@keyframes slideDown {
+    from {
+      z-index: 1000;
+    }
+  
+    to {
+      z-index: 1;
+    }
+  } */
+
+/* div.dropdown-menu.show {
+    height: 100px;
+    visibility: visible;
+    transition: height 0.3s;
+} */
+
 
 .bg-image {
     background: url("../pics/6.jpg") no-repeat center center;
@@ -29,6 +68,16 @@ body {
 .carousel-item {
     height: 600px;
     background-color: #000000;
+}
+
+#navbar-scroll.bg-dark a, #navbar-scroll.bg-light a {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    transition: padding 0.2s ease;
+}
+
+#navbar-scroll a {
+    transition: padding 0.2s ease;
 }
 
 /* IMPORTED! */
@@ -80,7 +129,7 @@ body {
     width: 100%;
     height: auto;
     position: relative;
-    z-index: 10;
+    opacity: 10;
     background: rgba(255, 255, 255, 1);
     padding: 15px;
     bottom: 0px;
@@ -115,4 +164,4 @@ img.foodImage {
     display: inline-block;
     vertical-align: top;
     max-width: 100%;
-  }
+}

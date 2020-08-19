@@ -1,7 +1,6 @@
 export function disco() {
     const headerColor = 'light';
     const disco = 'active';
-    $(window).scrollTop(0);
     $(window).unbind('scroll');
 
     // try {
@@ -18,6 +17,7 @@ export function disco() {
     //     // this.app.toggleBox('errorBox', err);
     //     alert(err);
     // }
+    $(window).scrollTop(0);
     const el = this.app.disco({ headerColor, disco });
     this.swap(el);
     this.app.navbarChanger(50, 'bg-light');
