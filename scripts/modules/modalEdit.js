@@ -12,16 +12,19 @@ export function modalEdit() {
         modal.find('.modal-title').text(eventName);
         const altEl = modal.find('#alt');
         const embedEl = modal.find('#embed');
+        const iFrame = embedEl.find('iframe');
         if (alt) {
             altEl.show().text(alt);
             embedEl.hide();
         } else {
-            altEl.show().text('Loading map...');
-            setTimeout(() => {
-                altEl.hide();
-            }, 1000);
+            // altEl.show().text('Loading map...');
+            modal.find('.spinner-border').show();
             embedEl.show();
-            embedEl.find('iframe').attr('src', mapCoordinates);
+            iFrame.attr('src', mapCoordinates);
+            iFrame.on('load', function() {
+                modal.find('.spinner-border').hide();
+                $(this).show('slow', 'ease-in');
+            });
         }
         modal.find('.card-title').text(groupName);
         modal.find('.card-text').text(`${date} - ${time}`);

@@ -35,6 +35,7 @@ window.addEventListener('load', () => {
         this.navbarChanger = modules.navbarChanger;
         this.fixTime = modules.fixTime;
         this.modalEdit = modules.modalEdit;
+        this.spinner = modules.spinner;
 
         this.gApi = 'AIzaSyCChiTGKnxDKxYAB0fvIk78xqIbVog2nV8';
         this.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

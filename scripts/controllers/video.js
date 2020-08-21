@@ -20,6 +20,7 @@ export function video() {
             $(window).scrollTop(0);
             const el = this.app.video({ vids, headerColor, media });
             this.swap(el);
+            this.app.spinner();
             this.app.navbarChanger(50, 'bg-light');
         });
 

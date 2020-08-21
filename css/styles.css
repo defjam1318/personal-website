@@ -76,8 +76,22 @@ body {
     transition: padding 0.2s ease;
 }
 
+#navbar-scroll.bg-dark, #navbar-scroll.bg-light {
+    padding: 0rem 1rem;
+}
+
 #navbar-scroll a {
     transition: padding 0.2s ease;
+}
+
+#alt {
+    margin-bottom: 0rem;
+}
+
+.spinner-border {
+    position: absolute; 
+    top: 0; 
+    left: 0;
 }
 
 /* IMPORTED! */
