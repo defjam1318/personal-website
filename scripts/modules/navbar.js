@@ -13,10 +13,10 @@ export function navbarChanger(height, className) {
             var st = $(this).scrollTop();
             if (st > height) {
                 navbar.classList.add(className);
-                // navbar.classList.add('border-bottom');
+                navbar.classList.add('border-bottom');
             } else {
                 navbar.classList.remove(className);
-                // navbar.classList.remove('border-bottom');
+                navbar.classList.remove('border-bottom');
             }
             lastScrollTop = st;
         }

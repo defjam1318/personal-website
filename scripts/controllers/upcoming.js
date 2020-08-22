@@ -3,8 +3,16 @@ export function upcoming() {
     const calendar = 'active';
     let events;
     $(window).unbind('scroll');
+
+    const today = new Date();
+    const body = {
+        month: today.getMonth(),
+        day: today.getDate(),
+        year: today.getFullYear(),
+        size: 10
+    };
     
-    this.app.requestData('events', 'sort')
+    this.app.requestData('events', 'nextEvents', body)
     .then(res => res.json())
         .then(items => {
             if (items.hasOwnProperty('errorData')) {

@@ -20,6 +20,7 @@ export function audio() {
             $(window).scrollTop(0);
             const el = this.app.audio({ audios, headerColor, media });
             this.swap(el);
+            this.app.spinner();
             this.app.navbarChanger(50, 'bg-light');
         });
 

@@ -19,10 +19,11 @@ export function modalEdit() {
         } else {
             // altEl.show().text('Loading map...');
             modal.find('.spinner-border').show();
+            altEl.hide();
             embedEl.show();
             iFrame.attr('src', mapCoordinates);
             iFrame.on('load', function() {
-                modal.find('.spinner-border').hide();
+                modal.find('.spinner-border').hide('fast');
                 $(this).show('slow', 'ease-in');
             });
         }

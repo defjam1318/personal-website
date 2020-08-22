@@ -7,16 +7,24 @@ export function home() {
     let latest;
     $(window).unbind('scroll');
 
+    const today = new Date();
+    const body = {
+        month: today.getMonth(),
+        day: today.getDate(),
+        year: today.getFullYear(),
+        size: 3
+    };
 
-    this.app.requestData('events', 'sort')
+    this.app.requestData('events', 'nextEvents', body)
         .then(res => res.json())
         .then(items => {
+            console.log(items);
             if (items.hasOwnProperty('errorData')) {
                 const errorMessage = items.message;
                 items = null;
                 throw new Error(errorMessage);
             }
-            events = items.slice(0, 3)
+            events = items
                 .map(i => {
                     const venue = i.venue.split(' ').join('+').trim();
                     const location = i.location.split(' ').join('+').trim();
@@ -35,6 +43,7 @@ export function home() {
             $(window).scrollTop(0);
             const el = this.app.home({ miniBio, headerColor, home, events, latest, isHome });
             this.swap(el);
+            this.app.spinner();
             this.app.modalEdit();
             this.app.navbarChanger(50, 'bg-dark');
         });
