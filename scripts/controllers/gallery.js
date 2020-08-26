@@ -20,15 +20,28 @@ export function gallery() {
         .catch(err => {
             console.error(err);
         }).finally(() => {
-            const indexes = pics.reduce((a, _c, i) => a.concat(i), []);
+            const indexCount = pics.length - 1;
             $(window).scrollTop(0);
-            const el = this.app.gallery({ pics, indexes, headerColor, media });
+            const el = this.app.gallery({ pics, headerColor, media });
             this.swap(el);
             this.app.navbarChanger(50, 'bg-light');
-            document.querySelector('.carousel-inner').addEventListener('contextmenu', (e) => {
-                if (e.target.nodeName === 'IMG') {
-                    e.preventDefault();
+            $('#image-0').removeClass('hidden');
+            let currentIndex = 0;
+            $('.carousel-control-prev').click((e) => {
+                $(`#image-${currentIndex}`).addClass('hidden');
+                currentIndex--;
+                if (currentIndex < 0) {
+                    currentIndex = indexCount;
                 }
+                $(`#image-${currentIndex}`).removeClass('hidden');
+            });
+            $('.carousel-control-next').click((e) => {
+                $(`#image-${currentIndex}`).addClass('hidden');
+                currentIndex++;
+                if (currentIndex > indexCount) {
+                    currentIndex = 0;
+                }
+                $(`#image-${currentIndex}`).removeClass('hidden');
             });
         });
 }
