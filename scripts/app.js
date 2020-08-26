@@ -69,7 +69,7 @@ window.addEventListener('load', () => {
         this.get('#/upcoming', controllers.upcoming);
         this.get('#/disco', controllers.disco);
 
-
+        this.post('#/message', (ctx) => { controllers.contactPost.call(ctx) });
 
 
         // this.get('#/cinema', cinema);

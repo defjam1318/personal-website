@@ -1,24 +1,25 @@
 export function disco() {
     const headerColor = 'light';
     const disco = 'active';
+    let recs;
     $(window).unbind('scroll');
 
-    // try {
-    //     this.items = await (await this.app.requestData('getAll')).json();
-    //     // this.app.toggleBox('loadingBox');
-    //     if (this.items.hasOwnProperty('errorData')) {
-    //         const errorMessage = this.items.message;
-    //         this.items = null;
-    //         throw new Error(errorMessage);
-    //     }
-    //     // this.items.sort((a, b) => b.peopleInterested - a.peopleInterested);
-    //     // this.partial('../../templates/cinema.hbs', { username, items, search });
-    // } catch (err) {
-    //     // this.app.toggleBox('errorBox', err);
-    //     alert(err);
-    // }
-    $(window).scrollTop(0);
-    const el = this.app.disco({ headerColor, disco });
-    this.swap(el);
-    this.app.navbarChanger(50, 'bg-light');
+    this.app.requestData('recs', 'getAll')
+    .then(res => res.json())
+        .then(items => {
+            if (items.hasOwnProperty('errorData')) {
+                const errorMessage = items.message;
+                items = null;
+                throw new Error(errorMessage);
+            }
+            recs = items.slice();
+        })
+        .catch(err => {
+            console.error(err);
+        }).finally(() => {
+            $(window).scrollTop(0);
+            const el = this.app.disco({ recs, headerColor, disco });
+            this.swap(el);
+            this.app.navbarChanger(50, 'bg-light');
+        });
 }

@@ -1,32 +1,28 @@
 {{>header}}
 <div class="p-5"></div>
-<div class="container text-center">
-    <h1>Recordings</h1>
+<div class="container">
+    <h1 class="p-3">Recordings</h1>
     <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <div class="our-team-main">
-                <div class="team-front">
-                    <img src="../pics/ver0.jpg" />
-                    <h3>Title</h3>
-                    <p>Group</p>
+        {{#if recs}}
+        {{#each recs}}
+        <div class="col-md-6 px-5 py-3">
+            <div class="card" style="width: 18rem;">
+                <a href="{{this.infoUrl}}" target="_blank">
+                    <img class="card-img-top" src="{{this.imageUrl}}" alt="Card image cap">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">{{this.title}}</h5>
+                    <p class="card-text text-secondary">{{this.groupName}}</p>
+                    <a href="{{this.cdUrl}}" target="_blank" class="btn btn-light"><img src="../pics/icons/disk.png" alt="buy a cd"></a>
+                    <a href="{{this.spotifyUrl}}" target="_blank" class="btn btn-light"><img src="../pics/icons/spotify.png" alt="listen on spotify"></a>
+                    <a href="{{this.itunesUrl}}" target="_blank" class="btn btn-light"><img src="../pics/icons/itunes.png" alt="listen on iTunes"></a>
                 </div>
-
-                <div class="team-back">
-                    <div class="back-side-info">
-                        <h4>Ingredients</h4>
-                        <ul>
-                            
-                            <li>something</li>
-                           
-                        </ul>
-                        <a href="#/details/{{this.objectId}}">View the recepie</a>
-                    </div>
-
-                    <img class="foodImage" src="../pics/ver2.jpg" />
-                </div>
-
             </div>
         </div>
+        {{/each}}
+        {{else}}
+        <div class="text-center">This page didn't make it!</div>
+        {{/if}}
     </div>
 </div>
 {{>footer}}

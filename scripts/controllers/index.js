@@ -6,3 +6,4 @@ export * from './video.js';
 export * from './upcoming.js';
 export * from './contact.js';
 export * from './disco.js';
+export * from './contactPost.js';

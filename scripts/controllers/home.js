@@ -18,7 +18,6 @@ export function home() {
     this.app.requestData('events', 'nextEvents', body)
         .then(res => res.json())
         .then(items => {
-            console.log(items);
             if (items.hasOwnProperty('errorData')) {
                 const errorMessage = items.message;
                 items = null;

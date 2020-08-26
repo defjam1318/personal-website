@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&display=swap');
-
 body {
     font-family: 'Alata', sans-serif !important;
 }
@@ -47,7 +46,6 @@ body {
     transition: height 0.3s;
 } */
 
-
 .bg-image {
     background: url("../pics/6.jpg") no-repeat center center;
     background-size: cover;
@@ -89,93 +87,60 @@ body {
 }
 
 .spinner-border {
-    position: absolute; 
-    top: 0; 
+    position: absolute;
+    top: 0;
     left: 0;
+}
+
+.alert {
+    display: none;
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
 }
 
 /* IMPORTED! */
 
-.our-team-main {
-    width: 100%;
-    height: auto;
-    border-bottom: 5px #323233 solid;
-    background: transparent;
-    text-align: center;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    transition: 0.5s;
-    margin-bottom: 28px;
-    color: black;
+/* .card:hover .card__title {
+    background-size: 100% 100%;
 }
 
-.our-team-main img {
-    border-radius: 10px;
-    margin-bottom: 20px;
-    width: 40%;
-    height: 100%;
-    box-shadow: 0 0 0.2rem 0 rgba(68, 68, 68, .2);
+.card:hover .card__icon-wrapper .icon {
+    animation: card-icon-animation .3s;
 }
 
-.our-team-main h3 {
-    font-size: 20px;
-    font-weight: 700;
+.card__title {
+    background-image: linear-gradient(transparent 50%, alpha(var(--color-primary), 0.2) 50%);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 0% 100%;
+    transition: background .3s;
 }
 
-.our-team-main p {
-    margin-bottom: 0;
-}
-
-.team-back {
-    width: 100%;
-    height: auto;
+.card__icon-wrapper {
     position: absolute;
     top: 0;
-    left: 0;
-    padding: 5px 15px 0 15px;
-    text-align: left;
-    background: white;
-    color: black;
+    right: 0;
+    width: 3em;
+    height: 3em;
+    background-color: alpha(var(--color-black), 0.85);
+    border-bottom-left-radius: var(--radius-lg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.team-front {
-    width: 100%;
-    height: auto;
-    position: relative;
-    opacity: 10;
-    background: rgba(255, 255, 255, 1);
-    padding: 15px;
-    bottom: 0px;
-    transition: all 0.5s ease;
-}
-
-.our-team-main:hover .team-front {
-    bottom: -250px;
-    transition: all 0.5s ease;
-}
-
-.our-team-main:hover {
-    border-color: #777;
-    transition: 0.5s;
-}
-
-.back-side-info {
-    display: inline-block;
-    width: 50%;
-}
-
-.back-side-info a {
-    color: black;
-    font-weight: bold;
-}
-
-.back-side-info a:hover {
-    text-decoration: underline;
-}
-
-img.foodImage {
-    display: inline-block;
-    vertical-align: top;
-    max-width: 100%;
-}
+@keyframes card-icon-animation {
+    0%, 100% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    50% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    51% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+} */
