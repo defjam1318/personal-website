@@ -9,28 +9,25 @@
 </div>
 <div class="container py-5">
       <div class="row">
-            <div id="home-bio" class="col-md-8">
+            <div id="home-bio" class="col-md-8 pr-4">
                   <h3>Bio</h3>
                   <p>{{miniBio}}</p>
                   <a type="button" class="btn btn-dark btn-sm" href="#/about">Continue reading &#187;</a>
             </div>
-            <div class="col-md-3 border-left d-none d-md-block pl-4">
-                  <h3 class="pb-3">Latest event</h3>
-                  <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                              <h5 class="card-title font-italic">{{latest.eventName}}</h5>
-                              <h6 class="card-subtitle mb-2 text-muted">{{latest.groupName}}</h6>
-                              <p class="card-text">{{latest.date}}: {{latest.location}}</p>
-                              <a type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#eventModal"
-                                    data-event-name="{{latest.eventName}}" data-alt="{{latest.alt}}"
-                                    data-map-coordinates="{{latest.mapCoordinates}}"
-                                    data-group-name="{{latest.groupName}}" data-date="{{latest.date}}"
-                                    data-time="{{latest.time}}" data-event-url="{{latest.eventUrl}}">
-                                    Details
+            <div class="col-md-3 border-left d-md-block">
+                  <h3 class="pb-3">Featured recording</h3>
+                  <div class="card" style="width: 16rem;">
+                        <div class="img-restrain">
+                              <a href="{{featuredRec.infoUrl}}" target="_blank">
+                                    <img class="card-img-top" src="{{featuredRec.imageUrl}}" alt="Card image cap">
                               </a>
-                              <a type="button" href="{{latest.eventUrl}}" target="blank"
-                                    class="btn btn-dark btn-sm card-link mx-auto">Buy
-                                    tickets</a>
+                        </div>
+                        <div class="card-body">
+                              {{!-- <h5 class="card-title font-italic">{{featured.title}}</h5>
+                              <h6 class="card-subtitle mb-2 text-muted">{{featured.groupName}}</h6> --}}
+                              <a href="{{featuredRec.cdUrl}}" target="_blank" class="btn btn-dark btn-sm">Buy CD</a>
+                              <a type="button" href="#/disco" target="blank"
+                                    class="btn btn-dark btn-sm card-link mx-auto">More CDs</a>
                         </div>
                   </div>
             </div>
@@ -77,46 +74,50 @@
       </div>
 </div>
 <div class="container py-5 bg-light">
-      <h3>Latest media</h3>
-      <div class="row py-3 justify-content-center">
+      <h3>featured media</h3>
+      <div class="row py-3">
+            {{#if featuredAudio}}
             <div class="col-md-6">
                   <div class="card" style="width: 18rem;">
                         <div class="embed-responsive embed-responsive-16by9">
                               <iframe loading="lazy" scrolling="no" class="card-img-top" frameborder="no"
-                                    allow="autoplay"
-                                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/632188155&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+                                    allow="autoplay" src="{{featuredAudio.audioUrl}}"></iframe>
                               <div class="spinner-border" role="status">
                                     <span class="sr-only">Loading...</span>
                               </div>
                         </div>
                         <div class="card-body">
-                              <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
+                              <p class="card-text">{{featuredAudio.title}}</p>
+                              <p class="card-text text-secondary">{{featuredAudio.description}}</p>
                         </div>
                   </div>
                   <div style="width: inherit;" class="mx-auto pt-3 pb-5"><a type="button" class="btn btn-dark btn-sm"
                               href="#/audio">Continue listening &#187;</a>
                   </div>
             </div>
+            {{else}}
+            {{/if}}
+            {{#if featuredVideo}}
             <div class="col-md-6">
                   <div class="card" style="width: 18rem;">
                         <div class="embed-responsive embed-responsive-16by9">
-                              <iframe loading="lazy" class="card-img-top"
-                                    src="https://www.youtube.com/embed/vKzPIB7o9GM" frameborder="0"
-                                    allow="autoplay; encrypted-media;" allowfullscreen></iframe>
+                              <iframe loading="lazy" class="card-img-top" src="{{featuredVideo.videoUrl}}"
+                                    frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen></iframe>
                               <div class="spinner-border" role="status">
                                     <span class="sr-only">Loading...</span>
                               </div>
                         </div>
                         <div class="card-body">
-                              <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
+                              <p class="card-text">{{featuredVideo.title}}</p>
+                              <p class="card-text text-secondary">{{featuredVideo.description}}</p>
                         </div>
                   </div>
                   <div style="width: inherit;" class="mx-auto pt-3 pb-5"><a type="button" class="btn btn-dark btn-sm"
                               href="#/video">Continue watching &#187;</a>
                   </div>
             </div>
+            {{else}}
+            {{/if}}
       </div>
 </div>
 <!-- Modal -->

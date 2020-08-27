@@ -17,35 +17,6 @@ body {
     }
 }
 
-/* div.dropdown-menu {
-    display: block !important;
-    visibility: hidden;
-    height: 0px;
-    padding: 0px;
-    transition: height 0.3s;
-} */
-
-/* div.dropdown-menu a {
-    animation-duration: 2s;
-    animation-name: slideDown;
-}
-
-@keyframes slideDown {
-    from {
-      z-index: 1000;
-    }
-  
-    to {
-      z-index: 1;
-    }
-  } */
-
-/* div.dropdown-menu.show {
-    height: 100px;
-    visibility: visible;
-    transition: height 0.3s;
-} */
-
 .bg-image {
     background: url("../pics/6.jpg") no-repeat center center;
     background-size: cover;
@@ -106,13 +77,13 @@ body {
     height: 500px;
     overflow: hidden;
     margin-bottom: 3rem;
-  }
+}
 
-  .hidden {
-    display: none;
-  }
+.gallery img.hidden {
+    visibility: hidden;
+}
 
-  .gallery img {
+.gallery img {
     position: absolute;
     max-width: 100%;
     width: 100%;
@@ -120,55 +91,33 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-  }
+}
 
-  img.landscape {
+img.landscape {
     height: 100%;
     width: auto;
-  }
-
-/* IMPORTED! */
-
-/* .card:hover .card__title {
-    background-size: 100% 100%;
 }
 
-.card:hover .card__icon-wrapper .icon {
-    animation: card-icon-animation .3s;
+.img-restrain {
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+    overflow: hidden;
 }
 
-.card__title {
-    background-image: linear-gradient(transparent 50%, alpha(var(--color-primary), 0.2) 50%);
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 0% 100%;
-    transition: background .3s;
+.card-img-top:not(iframe) {
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
 }
 
-.card__icon-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 3em;
-    height: 3em;
-    background-color: alpha(var(--color-black), 0.85);
-    border-bottom-left-radius: var(--radius-lg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card-img-top:hover:not(iframe) {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
 }
 
-@keyframes card-icon-animation {
-    0%, 100% {
-        opacity: 1;
-        transform: translateX(0%);
-    }
-    50% {
-        opacity: 0;
-        transform: translateX(100%);
-    }
-    51% {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
+/* .card-deck div.card {
+    max-width: 40%;
 } */

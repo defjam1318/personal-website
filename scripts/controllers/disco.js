@@ -5,19 +5,28 @@ export function disco() {
     $(window).unbind('scroll');
 
     this.app.requestData('recs', 'getAll')
-    .then(res => res.json())
+        .then(res => res.json())
         .then(items => {
             if (items.hasOwnProperty('errorData')) {
                 const errorMessage = items.message;
                 items = null;
                 throw new Error(errorMessage);
             }
-            recs = items.slice();
+            recs = items.reduce((a, c, i) => {
+                if (i % 2 === 0) {
+                    a.push([c]);
+                    return a;
+                }
+
+                a[Math.floor(i / 2)].push(c);
+                return a;
+            }, []);
         })
         .catch(err => {
             console.error(err);
         }).finally(() => {
             $(window).scrollTop(0);
+            console.log(recs);
             const el = this.app.disco({ recs, headerColor, disco });
             this.swap(el);
             this.app.navbarChanger(50, 'bg-light');

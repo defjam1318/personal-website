@@ -2,27 +2,51 @@
 <div class="p-5"></div>
 <div class="container">
     <h1 class="p-3">Recordings</h1>
-    <div class="row">
-        {{#if recs}}
-        {{#each recs}}
-        <div class="col-md-6 px-5 py-3">
-            <div class="card" style="width: 18rem;">
-                <a href="{{this.infoUrl}}" target="_blank">
-                    <img class="card-img-top" src="{{this.imageUrl}}" alt="Card image cap">
+    {{#if recs}}
+    {{#each recs}}
+    <div class="card-deck">
+        <div class="card m-5">
+            <div class="img-restrain">
+                <a href="{{this.0.infoUrl}}" target="_blank">
+                    <img class="card-img-top" src="{{this.0.imageUrl}}" alt="Card image cap">
                 </a>
-                <div class="card-body">
-                    <h5 class="card-title">{{this.title}}</h5>
-                    <p class="card-text text-secondary">{{this.groupName}}</p>
-                    <a href="{{this.cdUrl}}" target="_blank" class="btn btn-light"><img src="../pics/icons/disk.png" alt="buy a cd"></a>
-                    <a href="{{this.spotifyUrl}}" target="_blank" class="btn btn-light"><img src="../pics/icons/spotify.png" alt="listen on spotify"></a>
-                    <a href="{{this.itunesUrl}}" target="_blank" class="btn btn-light"><img src="../pics/icons/itunes.png" alt="listen on iTunes"></a>
-                </div>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{this.0.title}}</h5>
+                <p class="card-text text-secondary">{{this.0.groupName}}</p>
+            </div>
+            <div class="card-footer">
+                <a href="{{this.0.cdUrl}}" target="_blank" class="btn btn-light"><img src="../pics/icons/disk.png"
+                        alt="buy a cd"></a>
+                <a href="{{this.0.spotifyUrl}}" target="_blank" class="btn btn-light"><img src="../pics/icons/spotify.png"
+                        alt="listen on spotify"></a>
+                <a href="{{this.0.itunesUrl}}" target="_blank" class="btn btn-light"><img src="../pics/icons/itunes.png"
+                        alt="listen on iTunes"></a>
             </div>
         </div>
-        {{/each}}
-        {{else}}
-        <div class="text-center">This page didn't make it!</div>
-        {{/if}}
+        <div class="card m-5">
+            <div class="img-restrain">
+                <a href="{{this.1.infoUrl}}" target="_blank">
+                    <img class="card-img-top" src="{{this.1.imageUrl}}" alt="Card image cap">
+                </a>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{this.1.title}}</h5>
+                <p class="card-text text-secondary">{{this.1.groupName}}</p>
+            </div>
+            <div class="card-footer">
+                <a href="{{this.1.cdUrl}}" target="_blank" class="btn btn-light"><img src="../pics/icons/disk.png"
+                        alt="buy a cd"></a>
+                <a href="{{this.1.spotifyUrl}}" target="_blank" class="btn btn-light"><img src="../pics/icons/spotify.png"
+                        alt="listen on spotify"></a>
+                <a href="{{this.1.itunesUrl}}" target="_blank" class="btn btn-light"><img src="../pics/icons/itunes.png"
+                        alt="listen on iTunes"></a>
+            </div>
+        </div>
     </div>
+    {{/each}}
+    {{else}}
+    <div class="text-center">This page didn't make it!</div>
+    {{/if}}
 </div>
 {{>footer}}

@@ -7,7 +7,7 @@
                   <tr>
                         <th scope="col">Date</th>
                         <th scope="col">Event</th>
-                        <th scope="col" class="d-none d-md-table-cell">Location</th>
+                        <th scope="col">Location</th>
                         <th scope="col" class="d-none d-md-table-cell">Venue</th>
                         <th scope="col" class="d-none d-md-table-cell">Tickets</th>
                         <th scope="col">More</th>
@@ -20,7 +20,7 @@
                         <th scope="row"><span>{{this.date}}</span><br /><span>{{this.time}}</span></th>
                         <td><span class="font-italic">{{this.eventName}}</span><br /><span>{{this.groupName}}</span>
                         </td>
-                        <td class="d-none d-md-table-cell">{{this.location}}</td>
+                        <td>{{this.location}}</td>
                         <td class="d-none d-md-table-cell">{{this.venue}}</td>
                         <td class="d-none d-md-table-cell">
                               <a type="button" class="btn btn-dark btn-sm" href="{{this.eventUrl}}"

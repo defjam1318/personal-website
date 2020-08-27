@@ -4,7 +4,9 @@ export function home() {
     const isHome = ' home';
     const miniBio = this.app.bio[0];
     let events;
-    let latest;
+    let featuredRec;
+    let featuredAudio;
+    let featuredVideo;
     $(window).unbind('scroll');
 
     const today = new Date();
@@ -15,9 +17,14 @@ export function home() {
         size: 3
     };
 
-    this.app.requestData('events', 'nextEvents', body)
-        .then(res => res.json())
-        .then(items => {
+    Promise.all([
+        this.app.requestData('events', 'nextEvents', body),
+        this.app.requestData('recs', 'featured'),
+        this.app.requestData('audios', 'featured'),
+        this.app.requestData('videos', 'featured')
+    ])
+        .then(res => Promise.all(res.map(x => x.json())))
+        .then(([items, rec, audio, video]) => {
             if (items.hasOwnProperty('errorData')) {
                 const errorMessage = items.message;
                 items = null;
@@ -33,14 +40,16 @@ export function home() {
                     const timeTranslated = `${this.app.fixTime(date.getHours())}:${this.app.fixTime(date.getMinutes())}`;
                     return Object.assign(i, { date: dateTranslated, time: timeTranslated, mapCoordinates });
                 });
-            latest = events[0];
+            featuredRec = rec[0];
+            featuredAudio = audio[0];
+            featuredVideo = video[0];
         })
         .catch(err => {
             console.error(err);
         })
         .finally(() => {
             $(window).scrollTop(0);
-            const el = this.app.home({ miniBio, headerColor, home, events, latest, isHome });
+            const el = this.app.home({ miniBio, headerColor, home, events, featuredRec, featuredAudio, featuredVideo, isHome });
             this.swap(el);
             this.app.spinner();
             this.app.modalEdit();
