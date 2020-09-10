@@ -1,8 +1,8 @@
 {{>header}}
+<div class="p-5"></div>
+{{#if vids}}
 <div id="videos" class="container p-2">
-  <div class="p-5"></div>
   <h1 class="pagetitle">video</h1>
-
   {{#each vids}}
   <div class="row py-3">
     <div class="col-md-4">
@@ -21,4 +21,10 @@
   </div>
   {{/each}}
 </div>
-{{>footer}}
+{{else}}
+<div id="videos" class="container p-2 h-75">
+  <h1 class="pagetitle">video</h1>
+  <h4 class="py-2">No videos found. Please check back later.</h4>
+</div>
+  {{/if}}
+  {{>footer}}

@@ -4,7 +4,7 @@ export function disco() {
     let recs;
     $(window).unbind('scroll');
 
-    this.app.requestData('recs', 'getAll')
+    this.app.requestData('recs', 'sort')
         .then(res => res.json())
         .then(items => {
             if (items.hasOwnProperty('errorData')) {

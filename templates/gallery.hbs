@@ -1,8 +1,9 @@
 {{>header}}
-<div class="container">
-  <div class="p-5"></div>
-  <h1 class="text-center">photos</h1>
+<div class="p-5"></div>
+{{#if pics}}
+<div class="container py-2">
   <div class="col-md-10 offset-md-1">
+    <h1>Photos</h1>
     <div class="gallery">
       {{#each pics}}
       <img id="image-{{this.index}}" src="{{this.imageUrl}}" class="hidden"></img>
@@ -18,4 +19,10 @@
     </div>
   </div>
 </div>
+{{else}}
+<div class="container py-2 h-75">
+  <h1>Photos</h1>
+  <h4 class="py-2">No pics found. Please check back later.</h4>
+</div>
+{{/if}}
 {{>footer}}

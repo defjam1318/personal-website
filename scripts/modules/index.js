@@ -1,4 +1,3 @@
-export * from './partialLoader.js';
 export * from './navbar.js';
 export * from './fixTime.js';
 export * from './modalEdit';

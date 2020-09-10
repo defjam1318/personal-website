@@ -1,14 +1,21 @@
 export function modalEdit() {
     $('#eventModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget);
-        var eventName = button.data('event-name');
-        var groupName = button.data('group-name');
-        var alt = button.data('alt');
-        var mapCoordinates = button.data('map-coordinates');
-        var date = button.data('date');
-        var time = button.data('time');
-        var eventUrl = button.data('event-url');
-        var modal = $(this)
+        const button = $(event.relatedTarget);
+        const eventName = button.data('event-name');
+        const groupName = button.data('group-name');
+        const alt = button.data('alt');
+        const mapCoordinates = button.data('map-coordinates');
+        const date = button.data('date');
+        const time = button.data('time');
+        const startDate = new Date(button.data('date-time'));
+        const endDate = new Date(startDate);
+        endDate.setHours(endDate.getHours() + 2);
+        const dateTime = startDate.toISOString().replace(/-|:|\.\d\d\d/g,"");
+        const dateTimeEnd = endDate.toISOString().replace(/-|:|\.\d\d\d/g,"");
+        const eventUrl = button.data('event-url');
+        const modal = $(this);
+        const href = `http://www.google.com/calendar/render?action=TEMPLATE&text=${eventName}&dates=${dateTime}/${dateTimeEnd}&details=${groupName}&location=${button.data('location')}&trp=false&sprop=&sprop=name:`;
+        modal.find('.modal-footer a').attr('href', href);
         modal.find('.modal-title').text(eventName);
         const altEl = modal.find('#alt');
         const embedEl = modal.find('#embed');
@@ -22,7 +29,7 @@ export function modalEdit() {
             altEl.hide();
             embedEl.show();
             iFrame.attr('src', mapCoordinates);
-            iFrame.on('load', function() {
+            iFrame.on('load', function () {
                 modal.find('.spinner-border').hide('fast');
                 $(this).show('slow', 'ease-in');
             });
@@ -33,8 +40,8 @@ export function modalEdit() {
         return;
     });
 
-    $('#eventModal').on('hide.bs.modal', function(e) {
-        var modal = $(this)
+    $('#eventModal').on('hide.bs.modal', function (e) {
+        const modal = $(this)
         modal.find('.modal-title').empty();
         modal.find('#alt').empty();
         modal.find('#embed > iframe').attr('src', '');

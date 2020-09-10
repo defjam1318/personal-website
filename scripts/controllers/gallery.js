@@ -19,6 +19,7 @@ export function gallery() {
         })
         .catch(err => {
             console.error(err);
+            pics = [];
         }).finally(() => {
             const indexCount = pics.length - 1;
             $(window).scrollTop(0);

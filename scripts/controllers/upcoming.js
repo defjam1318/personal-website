@@ -6,7 +6,7 @@ export function upcoming() {
 
     const today = new Date();
     const body = {
-        month: today.getMonth(),
+        month: today.getMonth() + 1,
         day: today.getDate(),
         year: today.getFullYear(),
         size: 10
@@ -24,7 +24,7 @@ export function upcoming() {
             .map(i => {
                 const venue = i.venue.split(' ').join('+').trim();
                 const location = i.location.split(' ').join('+').trim();
-                const mapCoordinates = `https://www.google.com/maps/embed/v1/place?key=${this.app.gApi}&q=${location},${venue}`;
+                const mapCoordinates = `https://www.google.com/maps/embed/v1/place?key=${this.app.gApi}&q=${venue},${location}`;
                 const date = new Date(i.dateTime);
                 const dateTranslated = `${this.app.months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
                 const timeTranslated = `${this.app.fixTime(date.getHours())}:${this.app.fixTime(date.getMinutes())}`;

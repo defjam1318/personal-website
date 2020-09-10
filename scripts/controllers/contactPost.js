@@ -20,8 +20,7 @@ export function contactPost() {
         .then(data => {
             $('.alert-info').hide();
             $('button').removeAttr('disabled');
-            console.log(data);
-            if (data.response.match('Ok')) {
+            if (data.accepted.length === 1) {
                 $('.alert-success').show();
                 setTimeout(() => {
                     $('.alert-success').hide('fast')

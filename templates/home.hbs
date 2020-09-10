@@ -14,29 +14,31 @@
                   <p>{{miniBio}}</p>
                   <a type="button" class="btn btn-dark btn-sm" href="#/about">Continue reading &#187;</a>
             </div>
+            {{#if featuredRec}}
             <div class="col-md-3 border-left d-md-block">
                   <h3 class="pb-3">Featured recording</h3>
                   <div class="card" style="width: 16rem;">
                         <div class="img-restrain">
                               <a href="{{featuredRec.infoUrl}}" target="_blank">
-                                    <img class="card-img-top" src="{{featuredRec.imageUrl}}" alt="Card image cap">
+                                    <img class="card-img-top" src="{{featuredRec.imageUrl}}" alt="CD cover">
                               </a>
                         </div>
                         <div class="card-body">
                               {{!-- <h5 class="card-title font-italic">{{featured.title}}</h5>
                               <h6 class="card-subtitle mb-2 text-muted">{{featured.groupName}}</h6> --}}
                               <a href="{{featuredRec.cdUrl}}" target="_blank" class="btn btn-dark btn-sm">Buy CD</a>
-                              <a type="button" href="#/disco" target="blank"
-                                    class="btn btn-dark btn-sm card-link mx-auto">More CDs</a>
+                              <a type="button" href="#/disco" class="btn btn-dark btn-sm card-link mx-auto">More CDs</a>
                         </div>
                   </div>
             </div>
+            {{/if}}
       </div>
 </div>
 <div class="container-fluid bg-dark text-white py-5">
       <div class="row">
             <div class="container">
                   <h3 class="pb-3">Upcoming events</h3>
+                  {{#if events}}
                   <table class="table table-dark table-hover">
                         <thead>
                               <tr>
@@ -61,7 +63,8 @@
                                                 data-target="#eventModal" data-event-name="{{this.eventName}}"
                                                 data-alt="{{this.alt}}" data-map-coordinates="{{this.mapCoordinates}}"
                                                 data-group-name="{{this.groupName}}" data-date="{{this.date}}"
-                                                data-time="{{this.time}}" data-event-url="{{this.eventUrl}}">
+                                                data-time="{{this.time}}" data-date-time="{{this.dateTime}}"
+                                                data-event-url="{{this.eventUrl}}" data-location="{{this.venue}}, {{this.location}}">
                                                 Details
                                           </a>
                                     </td>
@@ -70,6 +73,9 @@
                         </tbody>
                   </table>
                   <a type="button" class="btn btn-light btn-sm" href="#/upcoming">Continue browsing &#187;</a>
+                  {{else}}
+                  <h4>No events found <i class="fas fa-heart-broken"></i></h4>
+                  {{/if}}
             </div>
       </div>
 </div>
