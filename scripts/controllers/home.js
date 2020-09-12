@@ -9,11 +9,9 @@ export function home() {
     let featuredVideo;
     $(window).unbind('scroll');
 
-    const today = new Date();
+    const today = Date.now();
     const body = {
-        month: today.getMonth() + 1,
-        day: today.getDate(),
-        year: today.getFullYear(),
+        dateTime: today.valueOf(),
         size: 3
     };
 

@@ -7,6 +7,7 @@ const Sammy = require('sammy');
 
 import * as modules from './modules/index.js';
 import * as controllers from './controllers/index.js';
+import { keys } from './envKeys';
 import requestData from './data.js';
 import txt from '../text/bio.txt';
 
@@ -23,10 +24,8 @@ const video = require('../templates/video.hbs');
 
 window.addEventListener('load', () => {
     const app = Sammy('body', function () {
-        const appId = '57BC2223-608C-E384-FF26-3BBF8D8DD100';
-        const restApi = '1BCC7410-A60B-4367-9130-54260B590E53';
 
-        this.requestData = requestData(appId, restApi);
+        this.requestData = requestData(keys.appId, keys.restApi);
 
         this.navbarChanger = modules.navbarChanger;
         this.fixTime = modules.fixTime;
@@ -34,7 +33,7 @@ window.addEventListener('load', () => {
         this.spinner = modules.spinner;
         this.carouselControl = modules.carouselControl;
 
-        this.gApi = 'AIzaSyCChiTGKnxDKxYAB0fvIk78xqIbVog2nV8';
+        this.gApi = keys.gApiKey;
         this.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
         this.about = about;
         this.audio = audio;
