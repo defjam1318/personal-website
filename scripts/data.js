@@ -2,9 +2,7 @@ export default function requestData(appId, restApi) {
     return function (dataTable, requestName, body = {}, id) {
         const baseUrl = 'https://api.backendless.com/';
         const headers = { 'Content-type': 'application/json' };
-        if (body && requestName !== 'nextEvents') {
-            body = JSON.stringify(body);
-        }
+
         const options = {
             getAll: () => ({ method: 'GET' }),
             getOne: () => ({ method: 'GET' }),
@@ -12,7 +10,7 @@ export default function requestData(appId, restApi) {
             search: () => ({ method: 'GET' }),
             sort: () => ({ method: 'GET' }),
             nextEvents: () => ({ method: 'GET' }),
-            sendEmail: () => ({ method: 'POST', headers, body}),
+            sendEmail: () => ({ method: 'POST', headers, body: JSON.stringify(body)}),
             featured: () => ({ method: 'GET' }),
         }
     
