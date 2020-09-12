@@ -1,4 +1,13 @@
 # website
-Welcome to my website build. Please run 'npm i' after downloading.
-To run this project locally you'll need to obtain the API keys from me. Then you need to save them in envKeys.js file in the main 'scripts' dir.
-Build the project locally with 'npm run build' and serve it locally with 'npm run serve'.
+Welcome to my personal website build.
+
+1. To clone use 'git clone https://github.com/defjam1318/website.git'.
+
+2. To install dependencies run 'npm i'.
+
+3. To run this project locally you'll need to obtain the API keys.
+Save the API keys in a file named envKeys.js in the main 'scripts' dir and export them in an object named 'keys'.
+
+4. Build the project locally with 'npm run build'. 
+
+5. Serve it locally with 'npm run serve'.
