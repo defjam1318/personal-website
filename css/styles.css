@@ -66,13 +66,19 @@ body {
     position: relative;
     background-color: black;
     width: 100%;
-    height: 500px;
+    height: 80vh;
+    border: 8px solid #000;
+    border-radius: 15px;
     overflow: hidden;
     margin-bottom: 3rem;
 }
 
 .gallery img.hidden {
-    visibility: hidden;
+    position: absolute;
+    max-width: 0px;
+    left: 50%;
+    z-index: 0;
+    transition: all ease-out 0.4s;
 }
 
 .gallery img {
@@ -83,6 +89,20 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: all ease-in 0.5s;
+}
+
+.caption {
+    position: absolute;
+    min-width: 100%;
+    bottom: 30px;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.caption.hidden {
+    display: none;
 }
 
 img.landscape {
@@ -116,6 +136,10 @@ footer a {
 
 footer a:hover {
     color: rgba(255, 255, 255, 0.75);
+}
+
+img.aside {
+    border-radius: 10px;
 }
 
 /* .card-deck div.card {
