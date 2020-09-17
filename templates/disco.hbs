@@ -2,10 +2,10 @@
 <div class="p-5"></div>
 {{#if recs}}
 <div class="container p-2">
-    <h1>Recordings</h1>
+    <h1 class="mx-5">Recordings</h1>
     {{#each recs}}
-    <div class="card-deck">
-        <div class="card m-5">
+    <div class="card-deck disco-deck">
+        <div class="card m-5 disco-card">
             <div class="img-restrain">
                 <a href="{{this.0.infoUrl}}" target="_blank">
                     <img class="card-img-top" src="{{this.0.imageUrl}}" alt="Card image cap">
@@ -15,13 +15,13 @@
                 <h5 class="card-title">{{this.0.title}}</h5>
                 <p class="card-text text-secondary">{{this.0.groupName}}</p>
             </div>
-            <div class="card-footer">
+            <div class="card-footer disco-footer">
                 <a href="{{this.0.cdUrl}}" target="_blank" class="btn btn-light"><i class="fas fa-compact-disc fa-2x"></i></a>
                 <a href="{{this.0.spotifyUrl}}" target="_blank" class="btn btn-light"><i class="fab fa-spotify fa-2x"></i></a>
                 <a href="{{this.0.itunesUrl}}" target="_blank" class="btn btn-light"><i class="fab fa-itunes-note fa-2x"></i></a>
             </div>
         </div>
-        <div class="card m-5">
+        <div class="card m-5 disco-card">
             <div class="img-restrain">
                 <a href="{{this.1.infoUrl}}" target="_blank">
                     <img class="card-img-top" src="{{this.1.imageUrl}}" alt="Card image cap">
@@ -31,7 +31,7 @@
                 <h5 class="card-title">{{this.1.title}}</h5>
                 <p class="card-text text-secondary">{{this.1.groupName}}</p>
             </div>
-            <div class="card-footer">
+            <div class="card-footer disco-footer">
                 <a href="{{this.1.cdUrl}}" target="_blank" class="btn btn-light"><i class="fas fa-compact-disc fa-2x"></i></a>
                 <a href="{{this.1.spotifyUrl}}" target="_blank" class="btn btn-light"><i class="fab fa-spotify fa-2x"></i></a>
                 <a href="{{this.1.itunesUrl}}" target="_blank" class="btn btn-light"><i class="fab fa-itunes-note fa-2x"></i></a>

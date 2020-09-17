@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: "./scripts/app.js",
     output: {
         path: __dirname + '/dst',

@@ -16,16 +16,16 @@
             </div>
             {{#if featuredRec}}
             <div class="col-md-3 border-left d-md-block">
-                  <h3 class="pb-3">Featured recording</h3>
+                  <h3 class="my-3">Featured recording</h3>
                   <div class="card" style="width: 16rem;">
                         <div class="img-restrain">
                               <a href="{{featuredRec.infoUrl}}" target="_blank">
                                     <img class="card-img-top" src="{{featuredRec.imageUrl}}" alt="CD cover">
                               </a>
                         </div>
-                        <div class="card-body">
-                              <a href="{{featuredRec.cdUrl}}" target="_blank" class="btn btn-dark btn-sm">Buy CD</a>
-                              <a type="button" href="#/disco" class="btn btn-dark btn-sm card-link mx-auto">More CDs</a>
+                        <div class="card-body card-home">
+                              <a type="button" href="{{featuredRec.cdUrl}}" target="_blank" class="btn btn-dark btn-sm">Buy CD</a>
+                              <a type="button" href="#/disco" class="btn btn-dark btn-sm">More CDs</a>
                         </div>
                   </div>
             </div>
@@ -78,7 +78,7 @@
       </div>
 </div>
 <div class="container py-5 bg-light">
-      <h3>featured media</h3>
+      <h3>Featured media</h3>
       <div class="row py-3">
             {{#if featuredAudio}}
             <div class="col-md-6">
