@@ -25,15 +25,15 @@
                         <td class="d-none d-md-table-cell">{{this.venue}}</td>
                         <td class="d-none d-md-table-cell">
                               <a type="button" class="btn btn-dark btn-sm" href="{{this.eventUrl}}"
-                                    target="blank">Tickets</a>
+                                    target="_blank">Tickets</a>
                         </td>
                         <td>
-                              <a type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#eventModal"
+                              <a type="button" class="btn btn-sm btn-dark lite-text" data-toggle="modal" data-target="#eventModal"
                                     data-event-name="{{this.eventName}}" data-alt="{{this.alt}}"
                                     data-map-coordinates="{{this.mapCoordinates}}" data-group-name="{{this.groupName}}"
-                                    data-date="{{this.date}}" data-time="{{this.time}}" data-date-time="{{this.dateTime}}"
-                                    data-event-url="{{this.eventUrl}}" data-location="{{this.venue}}, {{this.location}}">
-                                    Details
+                                    data-date="{{this.date}}" data-time="{{this.time}}"
+                                    data-date-time="{{this.dateTime.seconds}}" data-event-url="{{this.eventUrl}}"
+                                    data-location="{{this.venue}}, {{this.location}}">Details
                               </a>
                         </td>
                   </tr>

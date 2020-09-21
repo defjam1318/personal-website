@@ -1,18 +1,28 @@
 export function video() {
     const headerColor = 'light';
     const media = 'active';
-    let vids;
+    let vids = [];
     $(window).unbind('scroll');
-    
-    this.app.requestData('videos', 'getAll')
-    .then(res => res.json())
-        .then(items => {
-            if (items.hasOwnProperty('errorData')) {
-                const errorMessage = items.message;
-                items = null;
-                throw new Error(errorMessage);
-            }
-            vids = items.slice();
+
+    // this.app.requestData('videos', 'getAll')
+    //     .then(res => res.json())
+    //     .then(items => {
+    //         if (items.hasOwnProperty('errorData')) {
+    //             const errorMessage = items.message;
+    //             items = null;
+    //             throw new Error(errorMessage);
+    //         }
+    //         vids = items.slice();
+    //     })
+
+
+    this.app.db.collection('videos').get()
+        .then(qs => {
+            qs.forEach(doc => {
+                if (doc.exists) {
+                    vids.push(doc.data());
+                }
+            });
         })
         .catch(err => {
             console.error(err);

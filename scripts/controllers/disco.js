@@ -1,18 +1,17 @@
 export function disco() {
     const headerColor = 'light';
     const disco = 'active';
-    let recs;
+    let recs = [];
     $(window).unbind('scroll');
 
-    this.app.requestData('recs', 'sort')
-        .then(res => res.json())
-        .then(items => {
-            if (items.hasOwnProperty('errorData')) {
-                const errorMessage = items.message;
-                items = null;
-                throw new Error(errorMessage);
-            }
-            recs = items.reduce((a, c, i) => {
+    this.app.db.collection('recs').orderBy('featured', 'desc').get()
+        .then(qs => {
+            qs.forEach(doc => {
+                if (doc.exists) {
+                    recs.push(doc.data());
+                }
+            });
+            recs = recs.reduce((a, c, i) => {
                 if (i % 2 === 0) {
                     a.push([c]);
                     return a;
@@ -21,8 +20,7 @@ export function disco() {
                 a[Math.floor(i / 2)].push(c);
                 return a;
             }, []);
-        })
-        .catch(err => {
+        }).catch(err => {
             console.error(err);
         }).finally(() => {
             $(window).scrollTop(0);
@@ -31,4 +29,5 @@ export function disco() {
             this.swap(el);
             this.app.navbarChanger(50, 'bg-light');
         });
+
 }

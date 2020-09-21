@@ -7,9 +7,15 @@ const Sammy = require('sammy');
 
 import * as modules from './modules/index.js';
 import * as controllers from './controllers/index.js';
-import { keys } from './envKeys';
+import { keys, firebaseConfig } from './envKeys';
 import requestData from './data.js';
 import txt from '../text/bio.txt';
+import * as firebase from "firebase/app";
+firebase.initializeApp(firebaseConfig);
+import 'firebase/firestore';
+// const db = firebase.firestore();
+
+
 
 
 const about = require('../templates/about.hbs');
@@ -24,9 +30,9 @@ const video = require('../templates/video.hbs');
 
 window.addEventListener('load', () => {
     const app = Sammy('body', function () {
-
+        
+        this.db = firebase.firestore();
         this.requestData = requestData(keys.appId, keys.restApi);
-
         this.navbarChanger = modules.navbarChanger;
         this.fixTime = modules.fixTime;
         this.modalEdit = modules.modalEdit;

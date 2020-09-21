@@ -24,11 +24,19 @@ body {
 
 .bg-image {
     background: 
-    url("https://backendlessappcontent.com/57BC2223-608C-E384-FF26-3BBF8D8DD100/1BCC7410-A60B-4367-9130-54260B590E53/files/web/pics/bcgs/6.jpg") no-repeat center center, 
-    url("https://backendlessappcontent.com/57BC2223-608C-E384-FF26-3BBF8D8DD100/1BCC7410-A60B-4367-9130-54260B590E53/files/web/pics/bcgs/6666.jpg") no-repeat center center;
+    url("https://tomailiev.com/pics/bgs/6.jpg") no-repeat center center, 
+    url("https://tomailiev.com/pics/bgs/6666.jpg") no-repeat center center;
     background-color: #343a40;
     background-size: cover;
     transition: all 2s ease-in;
+}
+
+td a.lite-text {
+    color: #fff;
+}
+
+td a.lite-text:hover {
+    color: #fff;
 }
 
 body {

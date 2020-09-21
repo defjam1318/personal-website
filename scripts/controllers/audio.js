@@ -1,18 +1,27 @@
 export function audio() {
     const headerColor = 'light';
     const media = 'active';
-    let audios;
+    let audios = [];
     $(window).unbind('scroll');
-    
-    this.app.requestData('audios', 'getAll')
-    .then(res => res.json())
-    .then(items => {
-        if (items.hasOwnProperty('errorData')) {
-            const errorMessage = items.message;
-            items = null;
-            throw new Error(errorMessage);
-        }
-            audios = items.slice();
+
+
+    // this.app.requestData('audios', 'getAll')
+    // .then(res => res.json())
+    // .then(items => {
+    //     if (items.hasOwnProperty('errorData')) {
+    //         const errorMessage = items.message;
+    //         items = null;
+    //         throw new Error(errorMessage);
+    //     }
+    //         audios = items.slice();
+    //     })
+    this.app.db.collection('audios').get()
+        .then(qs => {
+            qs.forEach(doc => {
+                if (doc.exists) {
+                    audios.push(doc.data());
+                }
+            });
         })
         .catch(err => {
             console.error(err);

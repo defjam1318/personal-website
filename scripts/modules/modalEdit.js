@@ -7,7 +7,7 @@ export function modalEdit() {
         const mapCoordinates = button.data('map-coordinates');
         const date = button.data('date');
         const time = button.data('time');
-        const startDate = new Date(button.data('date-time'));
+        const startDate = new Date(button.data('date-time') * 1000); 
         const endDate = new Date(startDate);
         endDate.setHours(endDate.getHours() + 2);
         const dateTime = startDate.toISOString().replace(/-|:|\.\d\d\d/g,"");
