@@ -12,7 +12,9 @@ import requestData from './data.js';
 import txt from '../text/bio.txt';
 import * as firebase from "firebase/app";
 firebase.initializeApp(firebaseConfig);
-import 'firebase/firestore';
+import 'firebase/firebase-analytics';
+import 'firebase/firebase-firestore';
+firebase.analytics();
 // const db = firebase.firestore();
 
 

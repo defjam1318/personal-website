@@ -21,9 +21,10 @@ export default function requestData(appId, restApi) {
             search: `data/${dataTable}?where=genres%20LIKE%20%27${id}%25%27`,
             sort: `data/${dataTable}?sortBy=featured%20desc`,
             nextEvents: `data/${dataTable}?pageSize=${body.size}&where=dateTime%20%3E${body.dateTime}&sortBy=dateTime%20asc`,
-            sendEmail: 'services/EmailService/sendEmail',
+            sendEmail: 'http://localhost:5001/toma-iliev/us-central1/sendEmail',
             featured: `data/${dataTable}?where=featured%20%3D%20true`,
         }
-        return Promise.resolve(fetch(`${baseUrl}${appId}/${restApi}/${endPoints[requestName]}`, options[requestName]()));
+        // return Promise.resolve(fetch(`${baseUrl}${appId}/${restApi}/${endPoints[requestName]}`, options[requestName]()));
+        return Promise.resolve(fetch(endPoints.sendEmail,options.sendEmail));
     }
 }
