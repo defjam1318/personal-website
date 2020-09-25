@@ -2,3 +2,5 @@ node_modules/
 envKeys.js
 dst/
 functions/
+scripts/data.js
+compilation-stats.json

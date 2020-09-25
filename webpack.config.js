@@ -4,7 +4,8 @@ module.exports = {
     entry: "./scripts/app.js",
     output: {
         path: __dirname + '/dst',
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        chunkFilename: '[name].bundle.js'
     },
     watch: false,
     devServer: {
@@ -31,13 +32,19 @@ module.exports = {
             {
                 test: /\.txt$/i,
                 use: 'raw-loader',
-              }
+            }
         ]
     },
-    plugins: [
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery'
-        }),
-    ]
+    // plugins: [
+    //     new webpack.ProvidePlugin({
+    //         $: 'jquery',
+    //         jQuery: 'jquery'
+    //     }),
+    // ]
+    externals: {
+        $: 'jQuery',
+        bootstrap: 'bootstrap',
+        Sammy: 'sammy'
+        // handlebars: 'handlebars'
+    }
 };

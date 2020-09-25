@@ -1,20 +1,16 @@
-import 'popper.js';
-import 'bootstrap';
-import 'bootstrap/js/dist/util';
+// import 'popper.js';
+// import 'bootstrap';
+// import 'bootstrap/js/dist/util';
 import 'handlebars/runtime';
-const Sammy = require('sammy');
+// const Sammy = require('sammy');
 
 
 import * as modules from './modules/index.js';
 import * as controllers from './controllers/index.js';
 import { keys, firebaseConfig } from './envKeys';
-import requestData from './data.js';
 import txt from '../text/bio.txt';
-import * as firebase from "firebase/app";
-firebase.initializeApp(firebaseConfig);
-import 'firebase/firebase-analytics';
-import 'firebase/firebase-firestore';
-firebase.analytics();
+// import 'firebase/firebase-analytics';
+// firebase.analytics();
 // const db = firebase.firestore();
 
 
@@ -32,9 +28,12 @@ const video = require('../templates/video.hbs');
 
 window.addEventListener('load', () => {
     const app = Sammy('body', function () {
-        
+
+        firebase.initializeApp(firebaseConfig);
+        if (firebase.analytics) {
+            firebase.analytics();
+        }
         this.db = firebase.firestore();
-        this.requestData = requestData(keys.appId, keys.restApi);
         this.navbarChanger = modules.navbarChanger;
         this.fixTime = modules.fixTime;
         this.modalEdit = modules.modalEdit;
