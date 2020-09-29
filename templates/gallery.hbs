@@ -1,25 +1,27 @@
 {{>header}}
 <div class="p-5"></div>
 {{#if pics}}
-<div class="container py-2">
+<div class="container-fluid py-2">
   {{!-- <div class="col-md-10 offset-md-1"> --}}
-    <h1>Photos</h1>
-    <div class="gallery">
-      {{#each pics}}
-      <img id="image-{{this.index}}" src="{{this.imageUrl}}" class="hidden"></img>
-      <div id="caption-{{this.index}}" class="caption hidden">{{this.caption}}</div>
-      {{/each}}
-      <a class="carousel-control-prev" role="button">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" role="button">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-  {{!-- </div> --}}
+  <h1>Photos</h1>
 </div>
+<div class="gallery container-fluid">
+  {{#each pics}}
+  <img id="image-{{this.index}}" src="{{this.imageUrl}}" class="hidden"></img>
+  <div id="caption-{{this.index}}" class="caption hidden">{{this.caption}}</div>
+  {{/each}}
+  <a class="controls control-prev" role="button">
+    {{!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> --}}
+    <i class="fas fa-chevron-left" aria-hidden="true"></i>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="controls control-next" role="button">
+    {{!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> --}}
+    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+{{!-- </div> --}}
 {{else}}
 <div class="container py-2 h-75">
   <h1>Photos</h1>

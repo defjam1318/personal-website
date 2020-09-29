@@ -5,7 +5,7 @@ export function carouselControl(indexCount) {
     $('#image-0').removeClass('hidden');
     $('#caption-0').removeClass('hidden');
     let currentIndex = 0;
-    $('.carousel-control-prev').click((e) => {
+    $('.control-prev').click((e) => {
         $(`#image-${currentIndex}`).addClass('hidden');
         $(`#caption-${currentIndex}`).addClass('hidden');
 
@@ -17,7 +17,7 @@ export function carouselControl(indexCount) {
         $(`#caption-${currentIndex}`).removeClass('hidden');
 
     });
-    $('.carousel-control-next').click((e) => {
+    $('.control-next').click((e) => {
         $(`#image-${currentIndex}`).addClass('hidden');
         $(`#caption-${currentIndex}`).addClass('hidden');
         currentIndex++;

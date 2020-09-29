@@ -80,7 +80,7 @@ body {
     width: 100%;
     height: 80vh;
     /* border: 8px solid #000; */
-    border-radius: 10px;
+    /* border-radius: 10px; */
     overflow: hidden;
     margin-bottom: 3rem;
 }
@@ -96,21 +96,55 @@ body {
 .gallery img {
     position: absolute;
     max-width: 100%;
-    width: 100%;
-    height: auto;
+    /* width: 100%; */
+    max-height: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     transition: all ease-in 0.5s;
 }
 
+.controls {
+    width: 10%;
+    min-height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    cursor: pointer;
+}
+
+.controls:hover {
+    font-size: 45px;
+    color: darkgrey;
+}
+
+.control-prev {
+    position: absolute;
+    left: 0;
+}
+
+.control-next {
+    position: absolute;
+    right: 0;
+}
+
+.fa-chevron-left, .fa-chevron-right {
+    color: lightgray;
+    transition: all, 0.2s;
+    background-color: #000000;
+    border-radius: 5px;
+}
+
 .caption {
     position: absolute;
-    min-width: 100%;
+    width: 90%;
     bottom: 30px;
     background-color: #000;
     color: #fff;
     text-align: center;
+    left: 5%;
 }
 
 .caption.hidden {
