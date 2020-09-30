@@ -2,7 +2,7 @@ export function upcoming() {
     const headerColor = 'light';
     const calendar = 'active';
     let events = [];
-    $(window).unbind('scroll');
+    // $(window).unbind('scroll');
 
     const today = new Date();
     // const timestamp = admin.firestore.Timestamp.fromDate(firstDay)
@@ -31,11 +31,11 @@ export function upcoming() {
             console.error(err);
         })
         .finally(() => {
-            $(window).scrollTop(0);
             const el = this.app.upcoming({ headerColor, calendar, events });
             this.swap(el);
+            $(window).scrollTop(0);
             this.app.modalEdit();
-            this.app.navbarChanger(50, 'bg-light');
+            // this.app.navbarChanger(50, 'bg-light');
         });
 
 

@@ -34,7 +34,7 @@ window.addEventListener('load', () => {
             firebase.analytics();
         }
         this.db = firebase.firestore();
-        this.navbarChanger = modules.navbarChanger;
+        // this.navbarChanger = modules.navbarChanger;
         this.fixTime = modules.fixTime;
         this.modalEdit = modules.modalEdit;
         this.spinner = modules.spinner;

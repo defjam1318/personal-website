@@ -13,7 +13,7 @@ export default function requestData(appId, restApi) {
             sendEmail: () => ({ method: 'POST', headers, body: JSON.stringify(body)}),
             featured: () => ({ method: 'GET' }),
         }
-    
+     
         const endPoints = {
             getAll: `data/${dataTable}`,
             getOne: `data/${dataTable}/${id}`,

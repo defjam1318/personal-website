@@ -2,7 +2,7 @@ export function gallery() {
     const headerColor = 'light';
     const media = 'active';
     let pics = [];
-    $(window).unbind('scroll');
+    // $(window).unbind('scroll');
 
 
     // this.app.requestData('images', 'getAll')
@@ -34,12 +34,11 @@ export function gallery() {
             console.error(err);
             pics = [];
         }).finally(() => {
-            console.log(pics);
             const indexCount = pics.length - 1;
-            $(window).scrollTop(0);
             const el = this.app.gallery({ pics, headerColor, media });
             this.swap(el);
-            this.app.navbarChanger(50, 'bg-light');
+            $(window).scrollTop(0);
+            // this.app.navbarChanger(50, 'bg-light');
             this.app.carouselControl(indexCount);
         });
 }

@@ -2,7 +2,7 @@ export function video() {
     const headerColor = 'light';
     const media = 'active';
     let vids = [];
-    $(window).unbind('scroll');
+    // $(window).unbind('scroll');
 
     // this.app.requestData('videos', 'getAll')
     //     .then(res => res.json())
@@ -27,11 +27,11 @@ export function video() {
         .catch(err => {
             console.error(err);
         }).finally(() => {
-            $(window).scrollTop(0);
             const el = this.app.video({ vids, headerColor, media });
             this.swap(el);
+            $(window).scrollTop(0);
             this.app.spinner();
-            this.app.navbarChanger(50, 'bg-light');
+            // this.app.navbarChanger(50, 'bg-light');
         });
 
 

@@ -4,3 +4,8 @@ dst/
 functions/
 scripts/data.js
 compilation-stats.json
+pics/
+.firebaserc
+firebase.json
+firestore.rules
+firestore.indexes.json

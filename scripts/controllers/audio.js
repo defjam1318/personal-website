@@ -2,7 +2,7 @@ export function audio() {
     const headerColor = 'light';
     const media = 'active';
     let audios = [];
-    $(window).unbind('scroll');
+    // $(window).unbind('scroll');
 
 
     // this.app.requestData('audios', 'getAll')
@@ -26,11 +26,11 @@ export function audio() {
         .catch(err => {
             console.error(err);
         }).finally(() => {
-            $(window).scrollTop(0);
             const el = this.app.audio({ audios, headerColor, media });
             this.swap(el);
+            $(window).scrollTop(0);
             this.app.spinner();
-            this.app.navbarChanger(50, 'bg-light');
+            // this.app.navbarChanger(50, 'bg-light');
         });
 
 }

@@ -7,7 +7,7 @@ export function home() {
     let featuredRec;
     let featuredAudio;
     let featuredVideo;
-    $(window).unbind('scroll');
+    // $(window).unbind('scroll');
 
     const today = new Date();
     // const body = {
@@ -54,12 +54,12 @@ export function home() {
             console.error(err);
         })
         .finally(() => {
-            $(window).scrollTop(0);
             const el = this.app.home({ miniBio, headerColor, home, events, featuredRec, featuredAudio, featuredVideo, isHome });
             this.swap(el);
+            $(window).scrollTop(0);
             this.app.spinner();
             this.app.modalEdit();
-            this.app.navbarChanger(50, 'bg-dark');
+            // this.app.navbarChanger(50, 'bg-dark');
         });
 
         // Promise.all([
