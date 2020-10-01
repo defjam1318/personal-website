@@ -39,6 +39,7 @@ window.addEventListener('load', () => {
         this.modalEdit = modules.modalEdit;
         this.spinner = modules.spinner;
         this.carouselControl = modules.carouselControl;
+        this.loadEmbed = modules.loadEmbed;
 
         this.gApi = keys.gApiKey;
         this.months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];

@@ -59,6 +59,7 @@ export function home() {
             $(window).scrollTop(0);
             this.app.spinner();
             this.app.modalEdit();
+            $('.yt-embed').on('click', this.app.loadEmbed);
             // this.app.navbarChanger(50, 'bg-dark');
         });
 

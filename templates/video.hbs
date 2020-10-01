@@ -1,17 +1,28 @@
 {{>header}}
 <div class="p-5"></div>
 {{#if vids}}
-<div id="videos" class="container p-2">
+<div id="videos" class="container p-2 yt-embed">
   <h1 class="pagetitle">Video</h1>
   {{#each vids}}
   <div class="row py-3">
     <div class="col-md-4">
-      <div class="embed-responsive embed-responsive-16by9">
-        <iframe src="{{this.videoUrl}}" frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen
-          loading="lazy"></iframe>
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
-        </div>
+      <div class="embed-responsive embed-responsive-16by9 video-placeholder" data-yt-url="{{this.videoUrl}}"
+        style="background-image: url('https://tomailiev.com/pics/yt-resources/{{this.dir}}/sddefault.jpg');">
+        {{!-- <iframe loading="lazy" class="card-img-top" src="{{this.videoUrl}}"
+                                    frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen></iframe> --}}
+        <a href="{{this.channelUrl}}" target="_blank" class="channel-image"
+          style="background-image: url('https://tomailiev.com/pics/yt-resources/{{this.dir}}/channel.jpeg');"></a>
+        <button class="ytp-large-play-button ytp-button" aria-label="Play"><svg height="100%" version="1.1"
+            viewBox="0 0 68 48" width="100%">
+            <path class="ytp-large-play-button-bg"
+              d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+              fill="#f00"></path>
+            <path d="M 45,24 27,14 27,34" fill="#fff"></path>
+          </svg>
+        </button>
+        {{!-- <div class="spinner-border" role="status">
+                                    <span class="sr-only">Loading...</span>
+                              </div> --}}
       </div>
     </div>
     <div class="col-md-6">
@@ -26,5 +37,5 @@
   <h1 class="pagetitle">video</h1>
   <h4 class="py-2">No videos found. Please check back later.</h4>
 </div>
-  {{/if}}
-  {{>footer}}
+{{/if}}
+{{>footer}}
