@@ -1,11 +1,11 @@
 export function contactPost() {
     const body = { name, email, subject, message } = this.params;
     if (!name || !email || !subject || !message) {
-        $('.alert-danger').show('fast').text('All fields are required');
+        $('.alert-danger').show('fast').text('Please fill out all fields');
         setTimeout(() => {
             $('.alert-danger').hide('fast')
-        }, 1500);
-        // return;
+        }, 2500);
+        return;
     }
     $('button').attr('disabled', true);
     $('.form-control').each(function () {
@@ -25,14 +25,14 @@ export function contactPost() {
                 $('.alert-success').show();
                 setTimeout(() => {
                     $('.alert-success').hide('fast')
-                }, 1500);   
+                }, 2500);   
             }
         }).catch(err => {
             $('.alert-info').hide();
             $('button').removeAttr('disabled');
-            $('.alert-danger').show().text(err);
+            $('.alert-danger').show().text(err.message);
             setTimeout(() => {
-                $('.alert-danger').hide('fast')
-            }, 1500);
+                $('.alert-danger').hide('fast');
+            }, 2500);
         });
 }
