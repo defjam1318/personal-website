@@ -229,6 +229,82 @@ img.landscape {
     padding: .75rem 1rem;
 }
 
+.card .embed-responsive-16by9.video-placeholder {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.embed-responsive-16by9.video-placeholder {
+    /* height: 160.867px; */
+    /* background-image: url('../pics/yt_resources/Trousers/hqdefault.jpg'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.embed-responsive-16by9.video-placeholder .channel-image {
+    /* background-image: url('../pics/yt_resources/Trousers/AATXAJy6NU0GV3LBNenUBvviG3dVP2qQ3tagxSo7hh47=s68-c-k-c0x00ffffff-no-rj.jpeg'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    border-radius: 20px;
+}
+
+/* .embed-responsive-16by9.video-placeholder .channel-image:hover {
+    width: 45px;
+    height: 45px;
+} */
+
+.embed-responsive-16by9.video-placeholder:hover {
+    cursor: pointer;
+}
+
+.embed-responsive-16by9.video-placeholder:hover .ytp-large-play-button-bg {
+    fill: #f00;
+    fill-opacity: 1;
+}
+
+.ytp-large-play-button-bg {
+    -moz-transition: fill .1s cubic-bezier(0.4,0.0,1,1),fill-opacity .1s cubic-bezier(0.4,0.0,1,1);
+    -webkit-transition: fill .1s cubic-bezier(0.4,0.0,1,1),fill-opacity .1s cubic-bezier(0.4,0.0,1,1);
+    transition: fill .1s cubic-bezier(0.4,0.0,1,1),fill-opacity .1s cubic-bezier(0.4,0.0,1,1);
+    fill: #212121;
+    fill-opacity: .8;
+}
+
+
+.ytp-button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    color: inherit;
+    text-align: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    cursor: default;
+    line-height: inherit;
+}
+
+.ytp-large-play-button {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 68px;
+    height: 48px;
+    margin-left: -34px;
+    margin-top: -24px;
+    -moz-transition: opacity .25s cubic-bezier(0.0,0.0,0.2,1);
+    -webkit-transition: opacity .25s cubic-bezier(0.0,0.0,0.2,1);
+    transition: opacity .25s cubic-bezier(0.0,0.0,0.2,1);
+    z-index: 63;
+}
+
 #notifications {
     position: sticky;
     top: 85px;

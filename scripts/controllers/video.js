@@ -31,6 +31,7 @@ export function video() {
             this.swap(el);
             $(window).scrollTop(0);
             this.app.spinner();
+            $('.yt-embed').on('click', this.app.loadEmbed);
             // this.app.navbarChanger(50, 'bg-light');
         });
 
