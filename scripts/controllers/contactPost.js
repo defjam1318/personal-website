@@ -1,7 +1,16 @@
-export function contactPost() {
-    const body = { name, email, subject, message } = this.params;
-    if (!name || !email || !subject || !message) {
+export function contactPost(e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    const body = { name: $('#name').val(), email: $('#email').val(), subject: $('#subject').val(), message: $('#message').val() }
+    if (!body.name || !body.email || !body.subject || !body.message) {
         $('.alert-danger').show('fast').text('Please fill out all fields');
+        setTimeout(() => {
+            $('.alert-danger').hide('fast')
+        }, 2500);
+        return;
+    }
+    if (!body.email.includes('@') || !body.email.includes('.')) {
+        $('.alert-danger').show('fast').text('Invalid email address');
         setTimeout(() => {
             $('.alert-danger').hide('fast')
         }, 2500);

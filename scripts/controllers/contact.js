@@ -1,3 +1,4 @@
+import { contactPost } from './contactPost';
 export function contact() {
     const headerColor = 'light';
     const contact = 'active';
@@ -17,7 +18,7 @@ export function contact() {
     $('.form-control').on('focusout', function(e) {
         if (!$(this).val()) {
             $(this).addClass('red-border');
-            $(this).siblings('.validation-feedback').show('fast').text('Required filed');
+            $(this).siblings('.validation-feedback').show('fast').text('Required field');
             return;
         }
         if ($(this).is('#email') && !$(this).val().includes('@')) {
@@ -33,4 +34,5 @@ export function contact() {
             return;
     });
 
+    $('form').on('submit', contactPost);
 }

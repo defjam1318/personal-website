@@ -27,7 +27,7 @@ const video = require('../templates/video.hbs');
 
 
 window.addEventListener('load', () => {
-    const app = Sammy('body', function () {
+    const app = Sammy('main', function () {
 
         firebase.initializeApp(firebaseConfig);
         if (firebase.analytics) {
@@ -65,8 +65,8 @@ window.addEventListener('load', () => {
         this.get('#/video', controllers.video);
         this.get('#/upcoming', controllers.upcoming);
         this.get('#/disco', controllers.disco);
+        // this.post('#/message', (ctx) => { controllers.contactPost.call(ctx) });
 
-        this.post('#/message', (ctx) => { controllers.contactPost.call(ctx) });
 
     });
 
