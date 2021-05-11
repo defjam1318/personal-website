@@ -26,7 +26,8 @@
                               </a>
                         </div>
                         <div class="card-body card-home">
-                              <a type="button" href="{{featuredRec.cdUrl}}" target="_blank" class="btn btn-dark btn-sm">Buy CD</a>
+                              <a type="button" href="{{featuredRec.cdUrl}}" target="_blank"
+                                    class="btn btn-dark btn-sm">Buy CD</a>
                               <a type="button" href="#/disco" class="btn btn-dark btn-sm">More CDs</a>
                         </div>
                   </div>
@@ -59,14 +60,14 @@
                                     <td class="d-none d-md-table-cell">{{this.location}}</td>
                                     <td class="d-none d-md-table-cell">{{this.venue}}</td>
                                     <td>
-                                          <button type="button" class="btn btn-light btn-sm" data-toggle="modal"
+                                          <a type="button" class="btn btn-sm btn-dark lite-text" data-toggle="modal"
                                                 data-target="#eventModal" data-event-name="{{this.eventName}}"
                                                 data-alt="{{this.alt}}" data-map-coordinates="{{this.mapCoordinates}}"
                                                 data-group-name="{{this.groupName}}" data-date="{{this.date}}"
-                                                data-time="{{this.time}}" data-date-time="{{this.dateTime}}"
-                                                data-event-url="{{this.eventUrl}}" data-location="{{this.venue}}, {{this.location}}">
-                                                Details
-                                          </button>
+                                                data-time="{{this.time}}" data-date-time="{{this.dateTime.seconds}}"
+                                                data-event-url="{{this.eventUrl}}"
+                                                data-location="{{this.venue}}, {{this.location}}">Details
+                                          </a>
                                     </td>
                               </tr>
                               {{/each}}
